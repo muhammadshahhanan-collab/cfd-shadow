@@ -1,0 +1,785 @@
+tid,tree_id,easting,northing,height_m,crown_spread_m,species,xy_source,has_segmented_laz,segmented_path
+1,RTK_T1,836644.154,818304.177,7.0,3.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T1.laz
+2,RTK_T2,836645.255,818306.177,7.0,4.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T2.laz
+3,RTK_T3,836646.279,818308.349,7.0,3.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T3.laz
+4,RTK_T4,836655.05,818313.5,11.0,7.0,Celtis sinensis 朴樹,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T4.laz
+5,RTK_T5,836656.24,818315.92,6.0,2.0,Celtis sinensis 朴樹,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T5.laz
+6,RTK_T6,836520.217,818256.335,,,,rtk_csv,False,
+7,RTK_T7,836684.4,818383.5,12.0,6.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T7.laz
+8,RTK_T8,836727.84,818494.31,14.0,9.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T8.laz
+9,RTK_T9,836728.27,818498.59,13.0,10.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T9.laz
+10,RTK_T10,836728.11,818501.71,12.0,8.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T10.laz
+11,RTK_T11,836729.258,818506.878,5.0,2.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T11.laz
+12,RTK_T12,836729.174,818509.268,5.0,2.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T12.laz
+13,RTK_T13,836728.567,818511.277,6.0,2.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T13.laz
+14,RTK_T14,836726.662,818512.365,5.0,2.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T14.laz
+15,RTK_T15,836653.349,818576.037,6.0,3.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T15.las
+16,RTK_T16,836646.469,818573.502,6.0,2.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T16.las
+17,RTK_T17,836540.841,818703.315,,,,rtk_csv,False,
+18,RTK_T18,836653.419,818583.843,5.0,3.0,Litsea glutinosa 潺槁樹,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T18.las
+19,RTK_T19,836539.664,818699.717,,,,rtk_csv,False,
+20,RTK_T20,836534.589,818699.986,,,,rtk_csv,False,
+21,RTK_T21,836646.802,818583.668,6.0,3.0,Bauhinia purpurea 紅花羊蹄甲,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T21.laz
+22,RTK_T22,836529.27,818696.418,,,,rtk_csv,False,
+23,RTK_T23,836639.156,818566.471,4.0,3.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T23.las
+24,RTK_T24,836636.807,818564.557,6.0,4.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T24.laz
+25,RTK_T25,836633.589,818562.932,4.0,3.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T25.laz
+26,RTK_T26,836631.949497,818540.823603,5.0,3.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T26.las
+27,RTK_T27,836639.388096,818536.966196,2.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T27.las
+28,RTK_T28,836639.874103,818535.222697,5.0,3.0,Senna siamea 鐵刀木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T28.las
+29,RTK_T29,836633.829395,818539.854594,9.0,6.0,Senna siamea 鐵刀木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T29.las
+30,RTK_T30,836633.833,818539.687,6.0,6.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T30.laz
+31,RTK_T31,836637.634,818536.399,6.0,7.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T31.laz
+32,RTK_T32,836639.831,818534.757,7.0,4.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T32.laz
+33,RTK_T33,836639.312,818536.579,7.0,4.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T33.laz
+34,RTK_T34,836627.384,818517.092,8.0,3.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T34.laz
+35,RTK_T35,836624.128,818514.689,6.0,3.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T35.laz
+36,RTK_T36,836627.795,818504.353,7.0,6.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T36.laz
+37,RTK_T37,836623.275,818504.153,6.0,3.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T37.laz
+38,RTK_T38,836619.444,818503.306,7.0,4.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T38.laz
+39,RTK_T39,836615.588,818502.449,8.0,4.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T39.laz
+40,RTK_T40,836620.82,818543.561,5.0,4.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T40.laz
+41,RTK_T41,836616.555,818544.64,6.0,4.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T41.laz
+42,RTK_T42,836619.36,818531.534,6.0,4.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T42.laz
+43,RTK_T43,836513.83,818642.961,,,,rtk_csv,False,
+44,RTK_T44,836512.209,818639.555,,,,rtk_csv,False,
+45,RTK_T45,836511.064,818635.038,,,,rtk_csv,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T45.las
+46,RTK_T46,836615.371,818530.631,4.0,2.0,Elaeocarpus chinensis 野杜英 / 中華杜英,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T46.laz
+47,RTK_T47,836489.15,818642.997,,,,rtk_csv,False,
+48,RTK_T48,836491.334,818636.1,,,,rtk_csv,False,
+49,RTK_T49,836556.03,818482.73,4.0,5.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T49.laz
+50,RTK_T50,836552.81,818479.48,4.0,4.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T50.laz
+52,RTK_T52,836484.962,818637.772,,,,rtk_csv,False,
+53,RTK_T53,836699.736,818471.504,8.0,1.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T53.las
+54,RTK_T54,836696.5,818472.813,7.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T54.las
+55,RTK_T55,836696.737,818475.1,4.0,1.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T55.las
+56,RTK_T56,836695.988,818474.259,4.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T56.las
+57,RTK_T57,836695.788,818474.753,9.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T57.las
+58,RTK_T58,836480.733,818624.112,4.0,3.0,Podocarpus macrophyllus 羅漢松,rtk_csv,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T58.las
+59,RTK_T59,836666.49,818477.11,6.0,4.0,Ravenala madagascariensis 旅人蕉,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T59.laz
+60,RTK_T60,836667.87,818476.96,9.0,5.0,Ravenala madagascariensis 旅人蕉,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T60.laz
+61,RTK_T61,836670.04,818476.02,7.0,3.0,Ravenala madagascariensis 旅人蕉,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T61.laz
+62,RTK_T62,836661.231384,818459.621887,8.0,4.0,Ravenala madagascariensis 旅人蕉,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T62.laz
+63,RTK_T63,836661.22,818460.29,7.0,4.0,Ravenala madagascariensis 旅人蕉,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T63.las
+64,RTK_T64,836664.55,818459.2,9.0,5.0,Ravenala madagascariensis 旅人蕉,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T64.laz
+65,RTK_T65,836665.197,818458.918,5.0,3.0,Ravenala madagascariensis 旅人蕉,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T65.laz
+66,RTK_T66,836665.983,818454.437,7.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T66.las
+67,RTK_T67,836665.467,818451.959,4.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T67.las
+68,RTK_T68,,,2.0,2.0,Livistona chinensis 蒲葵,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T68.las
+69,RTK_T69,836683.705,818451.064,1.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T69.las
+70,RTK_T70,,,2.0,2.0,Livistona chinensis 蒲葵,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T70.las
+71,RTK_T71,836654.656,818471.211,6.0,6.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T71.laz
+72,RTK_T72,836652.84,818473.587,7.0,5.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T72.laz
+73,RTK_T73,836652.022,818469.058,6.0,4.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T73.laz
+74,RTK_T74,836649.565,818471.514,7.0,5.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T74.laz
+75,RTK_T75,,,3.0,3.0,Podocarpus macrophyllus 羅漢松,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T75.las
+76,RTK_T76,,,2.0,2.0,Livistona chinensis 蒲葵,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T76.las
+77,RTK_T77,,,2.0,2.0,Livistona chinensis 蒲葵,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T77.las
+78,RTK_T78,836636.951,818488.96,1.0,2.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T78.laz
+79,RTK_T79,836630.146,818491.945,3.0,2.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T79.laz
+80,RTK_T80,836630.774,818495.047,2.0,2.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T80.laz
+81,RTK_T81,836631.587,818497.466,4.0,4.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T81.laz
+82,RTK_T82,836632.478,818500.14,3.0,4.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T82.laz
+83,RTK_T83,836626.124,818465.863,3.0,2.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T83.las
+84,RTK_T84,836617.586,818460.898,6.0,3.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T84.laz
+85,RTK_T85,836616.395,818460.513,7.0,2.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T85.laz
+87,RTK_T87,836613.189,818459.514,4.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T87.laz
+88,RTK_T88,836614.186,818461.074,1.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T88.laz
+89,RTK_T89,836611.63,818461.898,3.0,2.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T89.laz
+90,RTK_T90,836609.864,818462.303,3.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T90.laz
+91,RTK_T91,836608.02,818462.952,3.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T91.laz
+92,RTK_T92,836605.51,818463.478,5.0,2.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T92.laz
+93,RTK_T93,836603.117,818464.58,5.0,3.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T93.laz
+94,RTK_T94,836602.631,818464.235,4.0,2.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T94.laz
+95,RTK_T95,836601.731,818464.768,4.0,2.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T95.laz
+96,RTK_T96,836619.309,818460.682,5.0,3.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T96.laz
+97,RTK_T97,836609.31,818482.01,12.0,16.0,Delonix regia 鳳凰木 (金鳳),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T97.laz
+99,RTK_T99,836571.74,818423.74,8.0,3.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T99.laz
+100,RTK_T100,836570.18,818424.9,7.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T100.laz
+101,RTK_T101,836568.84,818424.3,6.0,3.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T101.laz
+102,RTK_T102,836567.63,818418.85,4.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T102.laz
+103,RTK_T103,836572.93,818402.28,6.0,7.0,Bauhinia x blakeana 洋紫荊,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T103.laz
+104,RTK_T104,836575.25,818406.21,4.0,2.0,Tabebuia chrysantha 黃花風鈴木 / 黃鐘木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T104.laz
+105,RTK_T105,836556.36,818401.8,4.0,2.0,Tabebuia chrysantha 黃花風鈴木 / 黃鐘木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T105.laz
+106,RTK_T106,836554.83,818402.2,4.0,2.0,Tabebuia chrysantha 黃花風鈴木 / 黃鐘木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T106.laz
+108,RTK_T108,836541.372,818415.007,5.0,2.0,Heteropanax fragrans 幌傘楓,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T108.laz
+109,RTK_T109,836528.964,818416.275,4.0,4.0,Callistemon viminalis 串錢柳,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T109.laz
+110,RTK_T110,836502.886,818426.308,2.0,2.0,Prunus,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T110.las
+111,RTK_T111,836487.036,818431.877,3.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T111.las
+112,RTK_T112,836484.019,818415.336,2.0,1.0,Lagerstroemia indica 紫薇,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T112.las
+113,RTK_T113,836481.234,818412.098,2.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T113.las
+115,RTK_T115,836478.016,818385.496,1.0,1.0,Lagerstroemia indica 紫薇,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T115.las
+116,RTK_T116,836476.094,818385.546,2.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T116.laz
+117,RTK_T117,836670.088,818376.067,2.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T117.las
+118,RTK_T118,836518.012,818425.805,4.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T118.las
+119,RTK_T119,836515.576,818426.2,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T119.las
+120,RTK_T120,836514.54,818429.53,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T120.laz
+121,RTK_T121,836511.06,818430.54,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T121.laz
+122,RTK_T122,836504.16,818432.54,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T122.laz
+123,RTK_T123,836500.2,818433.2,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T123.laz
+124,RTK_T124,836491.335,818437.445,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T124.las
+125,RTK_T125,836487.67,818437.99,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T125.laz
+126,RTK_T126,836490.572,818442.571,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T126.las
+127,RTK_T127,836486.602,818443.028,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T127.las
+128,RTK_T128,836487.781,818445.803,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T128.las
+129,RTK_T129,836484.754,818442.65,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T129.laz
+130,RTK_T130,836480.61,818443.33,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T130.laz
+131,RTK_T131,836479.92,818440.04,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T131.laz
+132,RTK_T132,836483.07,818438.96,3.0,3.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T132.laz
+133,RTK_T133,836484.485,818434.485,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T133.laz
+134,RTK_T134,836483.463,818430.58,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T134.las
+135,RTK_T135,836481.098,818427.043,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T135.las
+136,RTK_T136,836475.94,818409.61,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T136.laz
+137,RTK_T137,836473.551,818404.986,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T137.laz
+138,RTK_T138,836470.83,818405.82,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T138.laz
+139,RTK_T139,836469.55,818404.3,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T139.laz
+140,RTK_T140,836472.84,818401.97,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T140.laz
+141,RTK_T141,836472.84,818398.5,4.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T141.laz
+142,RTK_T142,836471.87,818394.85,3.0,3.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T142.laz
+143,RTK_T143,836468.78,818395.17,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T143.laz
+144,RTK_T144,836470.43,818389.32,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T144.laz
+145,RTK_T145,836467.95,818389.94,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T145.laz
+146,RTK_T146,836464.76,818390.52,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T146.laz
+147,RTK_T147,836462.84,818391.54,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T147.laz
+148,RTK_T148,836469.84,818386.72,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T148.laz
+149,RTK_T149,836467.19,818387.67,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T149.laz
+150,RTK_T150,836464.47,818388.6,3.0,3.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T150.laz
+151,RTK_T151,836461.92,818388.87,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T151.laz
+152,RTK_T152,836493.12,818377.53,5.0,2.0,Ficus benjamina 'Variegata' 班葉垂榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T152.laz
+153,RTK_T153,836492.53,818374.81,4.0,2.0,Ficus benjamina 'Variegata' 班葉垂榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T153.laz
+154,RTK_T154,836494.44,818373.59,4.0,3.0,Ficus benjamina 'Variegata' 班葉垂榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T154.laz
+155,RTK_T155,836497.33,818373.13,4.0,3.0,Ficus benjamina 'Variegata' 班葉垂榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T155.laz
+156,RTK_T156,836501.11,818372.32,3.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T156.laz
+157,RTK_T157,836501.36,818373.47,4.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T157.laz
+158,RTK_T158,836501.55,818374.29,3.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T158.laz
+159,RTK_T159,836501.66,818375.16,4.0,2.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T159.laz
+160,RTK_T160,836502.08,818376.05,4.0,2.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T160.laz
+161,RTK_T161,836483.94,818370.39,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T161.laz
+162,RTK_T162,836482.71,818366.47,3.0,2.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T162.laz
+163,RTK_T163,836480.63,818355.76,2.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T163.laz
+164,RTK_T164,836480.19,818353.74,2.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T164.laz
+165,RTK_T165,836479.71,818352.06,2.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T165.laz
+166,RTK_T166,836479.08,818350.0,2.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T166.laz
+167,RTK_T167,836478.85,818348.14,2.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T167.laz
+168,RTK_T168,836477.87,818345.16,2.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T168.laz
+169,RTK_T169,836682.62,818401.74,5.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T169.laz
+170,RTK_T170,836681.94,818400.13,5.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T170.laz
+171,RTK_T171,836681.35,818397.63,5.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T171.laz
+172,RTK_T172,836681.04,818395.76,5.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T172.laz
+173,RTK_T173,836680.58,818394.29,5.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T173.laz
+174,RTK_T174,836680.06,818392.8,6.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T174.laz
+175,RTK_T175,836679.47,818390.44,3.0,1.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T175.laz
+176,RTK_T176,836668.17,818375.87,6.0,3.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T176.laz
+177,RTK_T177,836670.088,818376.067,4.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T177.laz
+178,RTK_T178,836670.353,818376.102,2.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T178.las
+179,RTK_T179,836671.618,818376.76,5.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T179.laz
+180,RTK_T180,836671.914,818377.105,,,,rtk_csv,False,
+187,RTK_T187,836582.68,818388.51,5.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T187.laz
+188,RTK_T188,836581.28,818408.435,2.0,1.0,Lagerstroemia indica 紫薇,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T188.laz
+189,RTK_T189,836580.138,818407.962,2.0,2.0,Lagerstroemia indica 紫薇,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T189.las
+190,RTK_T190,836574.63,818381.65,8.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T190.laz
+191,RTK_T191,836579.36,818378.31,6.0,7.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T191.laz
+192,RTK_T192,836536.625,818587.105,,,,rtk_csv,False,
+225,RTK_T225,836614.194,818303.809,4.0,2.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T225.laz
+226,RTK_T226,836612.781,818306.883,4.0,2.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T226.laz
+227,RTK_T227,836607.927,818307.925,3.0,2.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T227.laz
+228,RTK_T228,836597.641,818311.191,3.0,2.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T228.las
+229,RTK_T229,836595.03,818311.593,3.0,2.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T229.las
+231,RTK_T231,836516.98,818328.53,5.0,7.0,Ficus elastica 印度榕(印度橡樹),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T231.laz
+232,RTK_T232,836531.95,818297.99,21.0,21.0,Khaya senegalensis 非洲楝,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T232.las
+234,RTK_T234,836550.31,818292.56,12.0,12.0,Ficus elastica 印度榕(印度橡樹),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T234.las
+246,RTK_T246,836488.95,818296.51,11.0,9.0,Bauhinia purpurea 紅花羊蹄甲,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T246.laz
+247,RTK_T247,836488.223,818294.062,7.0,4.0,Bauhinia purpurea 紅花羊蹄甲,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T247.laz
+248,RTK_T248,836487.37,818291.51,7.0,5.0,Bauhinia purpurea 紅花羊蹄甲,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T248.laz
+249,RTK_T249,836485.877,818286.271,7.0,5.0,Bauhinia x blakeana 洋紫荊,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T249.laz
+250,RTK_T250,836485.086,818283.108,5.0,6.0,Bauhinia x blakeana 洋紫荊,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T250.laz
+251,RTK_T251,836484.03,818280.32,12.0,9.0,Bauhinia x blakeana 洋紫荊,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T251.las
+252,RTK_T252,836482.25,818272.85,4.0,4.0,Bauhinia x blakeana 洋紫荊,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T252.las
+253,RTK_T253,836458.812,818184.95,6.0,5.0,Bauhinia x blakeana 洋紫荊,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T253.las
+254,RTK_T254,836481.11,818269.54,7.0,5.0,Bauhinia variegata 宮粉羊蹄甲,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T254.las
+255,RTK_T255,836480.18,818265.98,7.0,5.0,Bauhinia x blakeana 洋紫荊,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T255.las
+256,RTK_T256,,,6.0,3.0,Podocarpus macrophyllus 羅漢松,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T256.las
+257,RTK_T257,836478.152,818283.266,7.0,3.0,Podocarpus macrophyllus 羅漢松,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T257.laz
+258,RTK_T258,836475.29,818284.311,8.0,7.0,Callistemon viminalis 串錢柳,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T258.laz
+259,RTK_T259,836462.59,818272.95,13.0,5.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T259.laz
+260,RTK_T260,836464.455,818278.15,10.0,4.0,Callistemon viminalis 串錢柳,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T260.laz
+261,RTK_T261,836465.32,818282.7,8.0,7.0,Albizia lebbeck 大葉合歡,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T261.laz
+262,RTK_T262,836463.55,818297.05,6.0,5.0,Callistemon viminalis 串錢柳,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T262.laz
+263,RTK_T263,836464.17,818299.9,8.0,5.0,Dypsis lutescens 散尾葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T263.laz
+264,RTK_T264,836466.08,818300.16,8.0,4.0,Dypsis lutescens 散尾葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T264.laz
+265,RTK_T265,836466.83,818299.4,8.0,4.0,Dypsis lutescens 散尾葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T265.laz
+266,RTK_T266,836429.13,818261.04,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T266.laz
+267,RTK_T267,836427.02,818261.61,5.0,4.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T267.laz
+268,RTK_T268,836425.01,818261.64,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T268.laz
+269,RTK_T269,836422.94,818262.34,5.0,4.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T269.laz
+270,RTK_T270,836415.88,818263.27,5.0,4.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T270.laz
+271,RTK_T271,836412.35,818264.35,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T271.laz
+272,RTK_T272,836404.1,818267.14,6.0,4.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T272.laz
+273,RTK_T273,836400.22,818267.8,6.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T273.laz
+274,RTK_T274,836397.349,818268.951,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T274.las
+275,RTK_T275,836398.39,818271.93,6.0,4.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T275.laz
+276,RTK_T276,836399.23,818275.18,6.0,4.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T276.laz
+277,RTK_T277,836401.09,818281.41,6.0,4.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T277.laz
+278,RTK_T278,836401.92,818284.12,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T278.laz
+279,RTK_T279,836402.63,818286.99,6.0,5.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T279.laz
+280,RTK_T280,836403.72,818289.62,6.0,4.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T280.laz
+281,RTK_T281,836404.15,818292.74,7.0,4.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T281.laz
+282,RTK_T282,836404.76,818295.58,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T282.laz
+283,RTK_T283,836405.3,818297.95,6.0,4.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T283.laz
+284,RTK_T284,836405.95,818300.51,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T284.laz
+285,RTK_T285,836407.11,818303.66,6.0,4.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T285.laz
+286,RTK_T286,836408.14,818306.39,6.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T286.laz
+287,RTK_T287,836408.42,818309.64,6.0,4.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T287.laz
+288,RTK_T288,,,6.0,5.0,Koelreuteria bipinnata 複羽葉欒樹,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T288.las
+289,RTK_T289,836419.52,818316.19,6.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T289.laz
+290,RTK_T290,836420.64,818319.03,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T290.laz
+291,RTK_T291,836421.18,818322.16,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T291.laz
+292,RTK_T292,836422.3,818324.91,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T292.laz
+293,RTK_T293,836423.17,818328.79,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T293.laz
+294,RTK_T294,836424.55,818332.11,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T294.laz
+295,RTK_T295,836425.19,818334.12,6.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T295.laz
+296,RTK_T296,836428.22,818333.62,5.0,4.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T296.laz
+297,RTK_T297,836430.79,818332.56,6.0,4.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T297.laz
+298,RTK_T298,836426.03,818324.25,6.0,4.0,Koelreuteria bipinnata 複羽葉欒樹,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T298.laz
+299,RTK_T299,836461.84,818334.2,7.0,6.0,Morus alba 桑,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T299.laz
+300,RTK_T300,836453.234,818336.42,2.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T300.laz
+301,RTK_T301,836451.148,818336.687,2.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T301.laz
+303,RTK_T303,836438.93,818340.32,6.0,3.0,Liquidambar formosana 楓香,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T303.laz
+306,RTK_T306,836456.126007,818323.045013,6.0,4.0,Syzygium jambos 蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T306.laz
+307,RTK_T307,836366.55,818235.74,6.0,6.0,Plumeria rubra var. acutifolia 黃雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T307.laz
+308,RTK_T308,836352.54,818236.13,6.0,5.0,Ficus subpisocarpa 筆管榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T308.laz
+310,RTK_T310,836350.34,818220.53,7.0,8.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T310.laz
+311,RTK_T311,836347.306,818218.509,6.0,4.0,Citrus maxima 柚,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T311.laz
+312,RTK_T312,836364.45,818227.77,7.0,3.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T312.laz
+313,RTK_T313,836363.37,818226.53,6.0,5.0,Psidium guajava 番石榴,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T313.laz
+314,RTK_T314,836358.49,818227.36,4.0,4.0,Callistemon viminalis 串錢柳,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T314.laz
+315,RTK_T315,836363.56,818213.99,5.0,2.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T315.laz
+316,RTK_T316,836366.07,818213.27,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T316.laz
+317,RTK_T317,836368.83,818212.4,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T317.laz
+318,RTK_T318,836372.92,818211.18,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T318.laz
+319,RTK_T319,836375.84,818210.49,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T319.laz
+320,RTK_T320,836379.41,818209.65,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T320.laz
+321,RTK_T321,836381.9,818208.72,6.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T321.laz
+322,RTK_T322,836384.8,818208.22,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T322.laz
+323,RTK_T323,836397.31,818210.36,7.0,10.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T323.laz
+324,RTK_T324,836411.38,818213.61,4.0,2.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T324.laz
+325,RTK_T325,836412.269,818212.917,5.0,2.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T325.laz
+326,RTK_T326,836414.85,818214.21,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T326.laz
+327,RTK_T327,836417.26,818215.63,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T327.laz
+328,RTK_T328,836419.63,818216.95,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T328.laz
+329,RTK_T329,836421.86,818218.12,5.0,3.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T329.laz
+330,RTK_T330,836422.409,818218.769,5.0,2.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T330.laz
+331,RTK_T331,836466.29,818215.31,5.0,3.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T331.laz
+332,RTK_T332,836466.75,818223.14,2.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T332.laz
+333,RTK_T333,836467.7,818223.94,8.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T333.laz
+334,RTK_T334,836467.19,818224.9,2.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T334.laz
+335,RTK_T335,836468.76,818231.37,8.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T335.laz
+336,RTK_T336,836471.05,818239.25,8.0,3.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T336.laz
+337,RTK_T337,836472.69,818245.35,4.0,2.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T337.laz
+338,RTK_T338,836473.79,818244.72,3.0,2.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T338.laz
+339,RTK_T339,836482.3,818238.29,3.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T339.laz
+340,RTK_T340,836480.77,818232.41,3.0,1.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T340.laz
+341,RTK_T341,836480.1,818229.15,3.0,2.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T341.laz
+342,RTK_T342,836479.922,818227.348,3.0,2.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T342.las
+343,RTK_T343,836479.18,818225.65,4.0,2.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T343.laz
+347,RTK_T347,,,7.0,7.0,Syzygium jambos 蒲桃,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T347.las
+357,RTK_T357,836596.719,818542.859,4.0,1.0,Garcinia subelliptica 菲島福木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T357.las
+358,RTK_T358,836595.622,818541.917,3.0,1.0,Garcinia subelliptica 菲島福木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T358.las
+360,RTK_T360,836594.946,818540.883,4.0,1.0,Garcinia subelliptica 菲島福木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T360.las
+361,RTK_T361,836593.45,818539.355,4.0,1.0,Garcinia subelliptica 菲島福木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T361.las
+362,RTK_T362,836592.309,818538.413,3.0,1.0,Garcinia subelliptica 菲島福木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T362.las
+367,RTK_T367,836549.09,818190.16,8.0,3.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T367.laz
+368,RTK_T368,836550.6,818192.59,6.0,3.0,Plumeria rubra var. acutifolia 黃雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T368.laz
+369,RTK_T369,836553.181,818204.264,6.0,8.0,Plumeria rubra var. acutifolia 黃雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T369.laz
+370,RTK_T370,836558.631,818218.638,6.0,7.0,Plumeria rubra var. acutifolia 黃雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T370.laz
+371,RTK_T371,836560.215,818224.917,5.0,5.0,Plumeria rubra var. acutifolia 黃雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T371.laz
+373,RTK_T373,836554.641,818232.385,6.0,2.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T373.laz
+374,RTK_T374,836555.942,818229.457,5.0,3.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T374.laz
+375,RTK_T375,836556.856,818229.864,5.0,2.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T375.las
+376,RTK_T376,836557.581,818229.939,6.0,1.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T376.las
+377,RTK_T377,836594.29,818250.34,8.0,6.0,Melia azedarach 楝 (苦楝),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T377.laz
+378,RTK_T378,836576.1,818232.76,10.0,3.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T378.laz
+379,RTK_T379,836574.22,818231.88,11.0,3.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T379.laz
+380,RTK_T380,836573.075,818231.386,2.0,3.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T380.laz
+381,RTK_T381,836572.15,818230.84,2.0,1.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T381.laz
+382,RTK_T382,836570.64,818230.0,2.0,1.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T382.laz
+383,RTK_T383,836575.46,818233.8,13.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T383.laz
+384,RTK_T384,836574.295,818232.851,13.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T384.laz
+385,RTK_T385,836572.983,818232.232,2.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T385.laz
+386,RTK_T386,836571.915,818231.986,4.0,3.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T386.laz
+387,RTK_T387,836570.481,818229.79,6.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T387.laz
+388,RTK_T388,836569.22,818229.1,13.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T388.laz
+389,RTK_T389,836568.45,818228.84,13.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T389.laz
+390,RTK_T390,836567.35,818227.66,13.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T390.laz
+391,RTK_T391,836574.74,818232.9,5.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T391.laz
+392,RTK_T392,836573.4,818233.11,12.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T392.laz
+393,RTK_T393,836572.69,818232.76,12.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T393.laz
+394,RTK_T394,836570.56,818231.86,11.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T394.laz
+395,RTK_T395,836567.4,818229.38,7.0,3.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T395.laz
+396,RTK_T396,836588.89,818232.14,9.0,6.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T396.laz
+397,RTK_T397,836585.97,818229.92,10.0,6.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T397.laz
+398,RTK_T398,836581.36,818226.62,11.0,7.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T398.laz
+399,RTK_T399,836578.11,818222.64,10.0,7.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T399.laz
+400,RTK_T400,836577.44,818218.01,8.0,7.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T400.laz
+401,RTK_T401,836575.67,818214.27,8.0,4.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T401.laz
+402,RTK_T402,836573.46,818211.32,7.0,5.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T402.laz
+403,RTK_T403,836573.02,818223.72,11.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T403.laz
+404,RTK_T404,836573.11,818222.6,12.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T404.laz
+405,RTK_T405,836571.52,818223.53,11.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T405.laz
+406,RTK_T406,836569.77,818222.89,10.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T406.laz
+407,RTK_T407,836569.115,818219.929,2.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T407.las
+408,RTK_T408,836567.17,818219.84,6.0,2.0,Trachycarpus fortunei 棕櫚,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T408.laz
+409,RTK_T409,836567.947,818223.6,2.0,1.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T409.laz
+410,RTK_T410,836567.648,818222.872,2.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T410.las
+411,RTK_T411,836566.9,818216.62,13.0,6.0,Grevillea robusta 銀樺,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T411.laz
+412,RTK_T412,836564.5,818205.16,10.0,7.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T412.laz
+413,RTK_T413,836564.51,818202.11,10.0,5.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T413.laz
+414,RTK_T414,836562.49,818196.4,7.0,5.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T414.laz
+415,RTK_T415,836562.0,818199.62,13.0,7.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T415.laz
+417,RTK_T417,836559.13,818192.468,11.0,12.0,Ficus elastica 印度榕(印度橡樹),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T417.las
+419,RTK_T419,836566.026,818228.056,3.0,2.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T419.laz
+420,RTK_T420,836567.648,818222.872,2.0,2.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T420.las
+421,RTK_T421,836562.04,818198.112,5.0,2.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T421.las
+422,RTK_T422,836545.411,818179.112,,,,rtk_csv,False,
+423,RTK_T423,836543.986,818177.616,,,,rtk_csv,False,
+424,RTK_T424,836541.46,818179.87,,,,rtk_csv,False,
+425,RTK_T425,836535.498,818173.272,,,,rtk_csv,False,
+426,RTK_T426,836532.03,818171.05,6.0,4.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T426.laz
+427,RTK_T427,836528.26,818170.09,5.0,3.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T427.laz
+428,RTK_T428,836525.61,818169.43,5.0,3.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T428.laz
+429,RTK_T429,836522.59,818169.37,5.0,3.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T429.laz
+430,RTK_T430,836518.98,818171.29,5.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T430.laz
+431,RTK_T431,836513.12,818171.04,15.0,10.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T431.laz
+432,RTK_T432,836511.491,818171.65,6.0,3.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T432.las
+433,RTK_T433,836508.7,818171.75,7.0,2.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T433.laz
+434,RTK_T434,836507.93,818170.433,6.0,3.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T434.las
+435,RTK_T435,836507.469,818172.86,4.0,2.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T435.laz
+436,RTK_T436,836506.86,818172.34,7.0,7.0,Ficus subpisocarpa 筆管榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T436.laz
+437,RTK_T437,836503.36,818169.46,15.0,9.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T437.laz
+438,RTK_T438,836496.56,818170.01,14.0,5.0,Bombax ceiba 木棉,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T438.laz
+439,RTK_T439,836491.855,818170.427,8.0,4.0,Ficus subpisocarpa 筆管榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T439.las
+440,RTK_T440,836489.72,818170.49,15.0,6.0,Bombax ceiba 木棉,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T440.laz
+441,RTK_T441,836487.21,818170.85,4.0,4.0,Ficus subpisocarpa 筆管榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T441.laz
+442,RTK_T442,836484.57,818171.0,15.0,6.0,Bombax ceiba 木棉,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T442.laz
+443,RTK_T443,836489.52,818175.95,14.0,19.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T443.laz
+444,RTK_T444,836494.60321,818177.4375,12.0,10.0,Celtis sinensis 朴樹,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T444.las
+445,RTK_T445,836482.26,818181.22,13.0,9.0,Delonix regia 鳳凰木 (金鳳),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T445.laz
+446,RTK_T446,836477.591,818175.23,9.0,4.0,Bauhinia variegata 宮粉羊蹄甲,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T446.laz
+447,RTK_T447,836473.07,818172.75,15.0,12.0,Ficus elastica 印度榕(印度橡樹),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T447.laz
+448,RTK_T448,836470.26,818183.74,8.0,6.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T448.laz
+449,RTK_T449,836473.5,818188.04,16.0,12.0,Delonix regia 鳳凰木 (金鳳),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T449.laz
+450,RTK_T450,836475.55,818192.06,5.0,3.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T450.laz
+451,RTK_T451,836472.57,818191.12,7.0,4.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T451.laz
+452,RTK_T452,836455.63,818186.46,16.0,4.0,Heteropanax fragrans 幌傘楓,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T452.laz
+453,RTK_T453,836456.603,818185.562,14.0,2.0,Heteropanax fragrans 幌傘楓,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T453.las
+454,RTK_T454,836455.955,818181.376,8.0,5.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T454.las
+455,RTK_T455,836451.7,818186.42,12.0,7.0,Mangifera indica 芒果,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T455.laz
+457,RTK_T457,836449.657,818184.365,,,,rtk_csv,False,
+458,RTK_T458,836452.48,818180.62,17.0,7.0,Casuarina equisetifolia 木麻黃(牛尾松),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T458.las
+459,RTK_T459,836454.68,818181.797,,,,rtk_csv,False,
+460,RTK_T460,836449.842,818181.995,9.0,4.0,Artocarpus macrocarpus 波蘿蜜,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T460.laz
+461,RTK_T461,,,5.0,1.0,"Magnolia grandiflora L. 荷花玉蘭, 洋玉蘭",,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T461.las
+462,RTK_T462,,,4.0,4.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T462.las
+463,RTK_T463,,,2.0,1.0,Garcinia subelliptica 菲島福木,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T463.las
+464,RTK_T464,,,2.0,1.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T464.las
+465,RTK_T465,836440.54,818184.33,11.0,6.0,Bombax ceiba 木棉,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T465.laz
+466,RTK_T466,,,3.0,1.0,Garcinia subelliptica 菲島福木,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T466.las
+467,RTK_T467,836438.439,818180.707,10.0,8.0,Senna siamea 鐵刀木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T467.las
+468,RTK_T468,836435.39,818181.99,6.0,6.0,Syzygium jambos 蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T468.laz
+469,RTK_T469,836436.41,818185.22,9.0,7.0,Celtis sinensis 朴樹,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T469.laz
+470,RTK_T470,836425.37,818184.74,11.0,10.0,Delonix regia 鳳凰木 (金鳳),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T470.laz
+471,RTK_T471,836412.51,818192.61,12.0,12.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T471.laz
+472,RTK_T472,,,5.0,5.0,Cinnamomum burmannii 陰香,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T472.las
+473,RTK_T473,836402.822,818206.563,6.0,4.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T473.las
+474,RTK_T474,836343.687,818226.127,6.0,3.0,Citrus maxima 柚,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T474.laz
+475,RTK_T475,836339.687,818230.158,12.0,8.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T475.laz
+476,RTK_T476,836341.962,818230.959,2.0,2.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T476.las
+477,RTK_T477,836341.757,818232.683,2.0,1.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T477.laz
+478,RTK_T478,836343.538,818234.678,5.0,2.0,Cinnamomum burmannii 陰香,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T478.laz
+479,RTK_T479,836340.536,818235.829,2.0,2.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T479.las
+480,RTK_T480,836338.387,818233.94,3.0,2.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T480.las
+481,RTK_T481,836346.609,818230.963,7.0,2.0,Liquidambar formosana 楓香,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T481.laz
+482,RTK_T482,836348.047,818235.947,7.0,3.0,Grevillea robusta 銀樺,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T482.laz
+483,RTK_T483,836349.397,818239.55,6.0,4.0,Citrus maxima 柚,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T483.laz
+484,RTK_T484,836349.76,818242.17,8.0,3.0,Grevillea robusta 銀樺,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T484.laz
+485,RTK_T485,836350.82,818244.85,7.0,2.0,Grevillea robusta 銀樺,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T485.laz
+486,RTK_T486,836351.2,818247.08,8.0,3.0,Grevillea robusta 銀樺,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T486.laz
+487,RTK_T487,836352.5,818250.31,10.0,3.0,Grevillea robusta 銀樺,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T487.laz
+488,RTK_T488,836354.09,818256.96,6.0,3.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T488.laz
+489,RTK_T489,836340.821,818242.037,8.0,2.0,Liquidambar formosana 楓香,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T489.laz
+490,RTK_T490,836344.513,818242.019,7.0,2.0,Liquidambar formosana 楓香,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T490.laz
+491,RTK_T491,836341.951,818244.709,2.0,2.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T491.las
+492,RTK_T492,836343.643,818246.719,2.0,2.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T492.laz
+494,RTK_T494,836343.63,818252.4,13.0,7.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T494.laz
+495,RTK_T495,836347.716,818256.294,5.0,2.0,Xanthostemon chrysanthus 金蒲桃,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T495.laz
+496,RTK_T496,836350.34,818258.83,11.0,3.0,Grevillea robusta 銀樺,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T496.laz
+497,RTK_T497,836352.354,818262.163,3.0,1.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T497.las
+498,RTK_T498,836354.229,818262.345,6.0,2.0,Liquidambar formosana 楓香,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T498.laz
+499,RTK_T499,836354.548,818264.214,2.0,1.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T499.las
+500,RTK_T500,836356.335,818265.288,3.0,1.0,Garcinia subelliptica 菲島福木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T500.las
+501,RTK_T501,836358.17,818267.2,14.0,6.0,Michelia x alba 白蘭,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T501.laz
+502,RTK_T502,836361.65,818269.93,11.0,6.0,Mangifera indica 芒果,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T502.laz
+503,RTK_T503,836364.08,818272.58,10.0,3.0,Grevillea robusta 銀樺,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T503.laz
+504,RTK_T504,836365.95,818274.91,10.0,3.0,Grevillea robusta 銀樺,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T504.laz
+505,RTK_T505,836368.01,818277.24,10.0,4.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T505.laz
+506,RTK_T506,836369.553,818278.864,9.0,3.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T506.laz
+507,RTK_T507,836371.22,818280.2,9.0,6.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T507.laz
+508,RTK_T508,836371.83,818283.05,4.0,4.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T508.laz
+509,RTK_T509,836374.04,818285.19,5.0,4.0,Cycas revoluta 蘇鐵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T509.laz
+510,RTK_T510,836375.95,818286.95,5.0,3.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T510.laz
+512,RTK_T512,836377.05,818290.41,6.0,2.0,Liquidambar formosana 楓香,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T512.laz
+513,RTK_T513,836378.25,818292.63,6.0,2.0,Liquidambar formosana 楓香,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T513.laz
+514,RTK_T514,836381.07,818294.04,10.0,7.0,Celtis sinensis 朴樹,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T514.laz
+515,RTK_T515,836387.66,818302.92,12.0,10.0,Delonix regia 鳳凰木 (金鳳),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T515.laz
+517,RTK_T517,836395.99,818311.6,12.0,9.0,Delonix regia 鳳凰木 (金鳳),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T517.laz
+519,RTK_T519,836403.52,818321.5,13.0,10.0,Delonix regia 鳳凰木 (金鳳),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T519.laz
+520,RTK_T520,836404.9,818324.93,4.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T520.laz
+521,RTK_T521,836406.26,818325.65,4.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T521.laz
+522,RTK_T522,836407.29,818328.12,4.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T522.laz
+523,RTK_T523,836410.06,818329.479,9.0,6.0,Ficus elastica 印度榕(印度橡樹),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T523.las
+524,RTK_T524,836409.792,818331.955,6.0,3.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T524.las
+525,RTK_T525,836411.22,818334.43,9.0,6.0,Ficus elastica 印度榕(印度橡樹),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T525.laz
+526,RTK_T526,836412.348,818337.385,4.0,3.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T526.laz
+527,RTK_T527,836413.15,818342.43,13.0,17.0,Melia azedarach 楝 (苦楝),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T527.laz
+528,RTK_T528,836360.57,818261.94,13.0,10.0,Mangifera indica 芒果,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T528.las
+529,RTK_T529,836362.29,818261.27,7.0,4.0,Mangifera indica 芒果,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T529.las
+530,RTK_T530,836364.414,818262.186,14.0,3.0,Taxodium ascendens 池杉,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T530.las
+531,RTK_T531,836365.18,818261.25,12.0,5.0,Mangifera indica 芒果,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T531.las
+532,RTK_T532,836365.678999,818259.802003,10.0,5.0,Clausena lansium 黃皮,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T532.las
+533,RTK_T533,836366.69,818262.56,13.0,8.0,Acacia confusa 台灣相思,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T533.las
+534,RTK_T534,836363.03,818266.08,12.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T534.laz
+535,RTK_T535,836365.83,818266.11,12.0,2.0,Taxodium ascendens 池杉,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T535.laz
+536,RTK_T536,836367.12,818269.61,16.0,4.0,Taxodium ascendens 池杉,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T536.laz
+537,RTK_T537,836369.188,818269.196,2.0,1.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T537.laz
+538,RTK_T538,836371.126,818268.354,2.0,1.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T538.las
+539,RTK_T539,836372.176,818272.297,4.0,2.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T539.las
+540,RTK_T540,836377.65,818274.99,17.0,11.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T540.laz
+541,RTK_T541,,,5.0,1.0,Ficus microcarpa 細葉榕,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T541.las
+542,RTK_T542,836383.4,818273.39,4.0,4.0,Aglaia odorata 米仔蘭 (魚子蘭),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T542.laz
+543,RTK_T543,836381.678,818255.799,8.0,8.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T543.las
+544,RTK_T544,836382.488,818256.544,16.0,10.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T544.laz
+545,RTK_T545,836383.266,818258.031,12.0,7.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T545.las
+546,RTK_T546,836384.627,818258.577,16.0,6.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T546.laz
+547,RTK_T547,836385.434,818259.431,16.0,4.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T547.laz
+548,RTK_T548,836386.52,818259.685,16.0,7.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T548.laz
+549,RTK_T549,836388.089,818259.919,15.0,8.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T549.laz
+550,RTK_T550,,,6.0,4.0,Ficus benjamina 垂葉榕,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T550.las
+552,RTK_T552,836405.031,818254.595,10.0,7.0,Celtis sinensis 朴樹,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T552.las
+553,RTK_T553,836396.8,818265.14,9.0,5.0,Callistemon viminalis 串錢柳,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T553.laz
+554,RTK_T554,836400.023,818263.408,14.0,8.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T554.laz
+555,RTK_T555,836400.068,818252.04,6.0,5.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T555.las
+556,RTK_T556,836405.605,818245.371,5.0,2.0,Garcinia subelliptica 菲島福木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T556.las
+557,RTK_T557,836596.719,818542.859,5.0,2.0,Garcinia subelliptica 菲島福木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T557.las
+558,RTK_T558,836595.622,818541.917,5.0,2.0,Garcinia subelliptica 菲島福木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T558.las
+559,RTK_T559,836393.11,818268.29,8.0,3.0,Callistemon viminalis 串錢柳,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T559.laz
+560,RTK_T560,836381.87,818279.93,12.0,14.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T560.laz
+561,RTK_T561,836381.27,818278.985,16.0,12.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T561.laz
+562,RTK_T562,836388.412,818285.728,5.0,2.0,Liquidambar formosana 楓香,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T562.laz
+563,RTK_T563,836379.15,818282.38,17.0,11.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T563.laz
+564,RTK_T564,836381.66,818285.7,14.0,7.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T564.laz
+565,RTK_T565,836384.96,818290.36,16.0,9.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T565.laz
+566,RTK_T566,836388.42,818292.71,16.0,22.0,Ficus virens 黃葛樹(大葉榕),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T566.laz
+567,RTK_T567,836390.08,818296.99,11.0,6.0,Ficus variegata 青果榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T567.laz
+568,RTK_T568,836397.035,818307.152,6.0,7.0,Ficus elastica 印度榕(印度橡樹),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T568.laz
+569,RTK_T569,836397.17,818288.16,14.0,6.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T569.laz
+570,RTK_T570,836398.63,818289.88,14.0,8.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T570.laz
+571,RTK_T571,836413.8,818334.46,9.0,4.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T571.laz
+572,RTK_T572,836416.07,818341.03,19.0,3.0,Araucaria columnaris 柱狀南洋杉,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T572.laz
+573,RTK_T573,836416.54,818343.41,12.0,5.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T573.laz
+574,RTK_T574,836417.24,818345.97,9.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T574.laz
+575,RTK_T575,836420.18,818352.24,14.0,9.0,Bombax ceiba 木棉,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T575.laz
+576,RTK_T576,836431.048889,818372.26001,4.0,1.0,Garcinia subelliptica 菲島福木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T576.las
+577,RTK_T577,836431.490509,818374.371887,4.0,1.0,Garcinia subelliptica 菲島福木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T577.las
+578,RTK_T578,836434.123108,818383.40329,4.0,1.0,Garcinia subelliptica 菲島福木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T578.las
+579,RTK_T579,836437.242188,818395.178314,4.0,1.0,Garcinia subelliptica 菲島福木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T579.las
+581,RTK_T581,836439.816193,818403.7146,3.0,1.0,Garcinia subelliptica 菲島福木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T581.las
+582,RTK_T582,836444.638977,818418.144562,3.0,1.0,Garcinia subelliptica 菲島福木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T582.las
+583,RTK_T583,836444.29,818418.63,5.0,3.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T583.laz
+584,RTK_T584,836448.209601,818432.757897,4.0,3.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T584.las
+585,RTK_T585,836449.3132,818436.8462,3.0,1.0,Garcinia subelliptica 菲島福木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T585.las
+586,RTK_T586,836450.119,818439.744798,2.0,1.0,Garcinia subelliptica 菲島福木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T586.las
+587,RTK_T587,836452.564699,818448.006501,3.0,1.0,Garcinia subelliptica 菲島福木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T587.las
+588,RTK_T588,,,2.0,1.0,Garcinia subelliptica 菲島福木,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T588.las
+591,RTK_T591,836453.855,818452.828,4.0,2.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T591.laz
+592,RTK_T592,836453.818,818454.502,3.0,2.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T592.laz
+593,RTK_T593,836454.18,818458.084,4.0,2.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T593.laz
+594,RTK_T594,836456.28,818465.51,14.0,6.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T594.laz
+595,RTK_T595,836457.14,818468.14,15.0,5.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T595.laz
+596,RTK_T596,836458.573,818472.243,15.0,6.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T596.laz
+598,RTK_T598,836422.78,818377.33,12.0,8.0,Crateva unilocularis 樹頭菜,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T598.laz
+599,RTK_T599,836423.58,818379.37,12.0,9.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T599.laz
+600,RTK_T600,836425.193,818376.169,12.0,1.0,Heteropanax fragrans 幌傘楓,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T600.laz
+601,RTK_T601,836424.97,818381.65,13.0,9.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T601.laz
+602,RTK_T602,836425.2,818386.8,16.0,8.0,Crateva unilocularis 樹頭菜,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T602.las
+603,RTK_T603,836427.69,818392.52,14.0,16.0,Melia azedarach 楝 (苦楝),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T603.las
+604,RTK_T604,,,12.0,6.0,Crateva unilocularis 樹頭菜,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T604.las
+605,RTK_T605,836429.848,818404.799,10.0,5.0,Crateva unilocularis 樹頭菜,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T605.laz
+606,RTK_T606,836431.48,818403.91,5.0,2.0,Crateva unilocularis 樹頭菜,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T606.laz
+607,RTK_T607,836431.91,818407.48,14.0,9.0,Melia azedarach 楝 (苦楝),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T607.laz
+608,RTK_T608,836431.98,818413.82,9.0,5.0,Crateva unilocularis 樹頭菜,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T608.laz
+609,RTK_T609,836433.506,818410.791,8.0,6.0,Ficus subpisocarpa 筆管榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T609.las
+610,RTK_T610,836435.31,818413.03,9.0,4.0,Crateva unilocularis 樹頭菜,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T610.laz
+611,RTK_T611,836433.85,818423.04,8.0,4.0,Crateva unilocularis 樹頭菜,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T611.laz
+612,RTK_T612,836430.372,818393.379,6.0,4.0,Psidium guajava 番石榴,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T612.las
+613,RTK_T613,836430.48,818395.35,9.0,4.0,Crateva unilocularis 樹頭菜,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T613.laz
+614,RTK_T614,836431.07,818397.15,10.0,4.0,Crateva unilocularis 樹頭菜,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T614.laz
+615,RTK_T615,836433.29,818404.52,10.0,6.0,Crateva unilocularis 樹頭菜,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T615.laz
+616,RTK_T616,836438.084,818427.158,6.0,3.0,Melia azedarach 楝 (苦楝),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T616.laz
+618,RTK_T618,836437.513,818430.02,8.0,3.0,Leucaena leucocephala 銀合歡,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T618.laz
+619,RTK_T619,836438.76,818436.75,11.0,5.0,Leucaena leucocephala 銀合歡,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T619.laz
+621,RTK_T621,836441.57,818443.88,9.0,4.0,Leucaena leucocephala 銀合歡,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T621.laz
+622,RTK_T622,836441.24,818449.23,9.0,3.0,Leucaena leucocephala 銀合歡,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T622.laz
+625,RTK_T625,836443.34,818451.81,8.0,4.0,Leucaena leucocephala 銀合歡,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T625.laz
+626,RTK_T626,836444.25,818453.84,11.0,6.0,Leucaena leucocephala 銀合歡,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T626.laz
+628,RTK_T628,,,2.0,1.0,Leucaena leucocephala 銀合歡,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T628.las
+630,RTK_T630,836445.97,818464.68,9.0,6.0,Leucaena leucocephala 銀合歡,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T630.laz
+631,RTK_T631,836452.15,818464.05,10.0,5.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T631.laz
+632,RTK_T632,836453.22,818466.82,12.0,5.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T632.laz
+633,RTK_T633,836454.51,818469.58,13.0,6.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T633.laz
+634,RTK_T634,836456.28,818472.08,14.0,6.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T634.laz
+635,RTK_T635,836457.26,818474.97,14.0,6.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T635.laz
+636,RTK_T636,836458.68,818477.62,15.0,6.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T636.laz
+637,RTK_T637,836460.4,818480.15,15.0,7.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T637.laz
+638,RTK_T638,836462.18,818482.44,11.0,4.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T638.laz
+639,RTK_T639,836464.2,818484.5,14.0,5.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T639.laz
+640,RTK_T640,836466.42,818486.27,10.0,4.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T640.laz
+641,RTK_T641,836468.77,818488.5,16.0,6.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T641.laz
+642,RTK_T642,836471.16,818490.64,13.0,5.0,Melaleuca cajuputi 白千層,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T642.laz
+644,RTK_T644,836484.43,818491.269,13.0,11.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T644.las
+645,RTK_T645,836486.586,818498.284,9.0,11.0,Delonix regia 鳳凰木 (金鳳),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T645.laz
+646,RTK_T646,836489.488,818498.311,17.0,8.0,Delonix regia 鳳凰木 (金鳳),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T646.laz
+648,RTK_T648,836553.02,818444.3,10.0,4.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T648.laz
+649,RTK_T649,836551.01,818447.72,9.0,4.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T649.laz
+650,RTK_T650,836550.72,818451.26,10.0,3.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T650.laz
+651,RTK_T651,836550.4,818456.11,8.0,3.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T651.laz
+652,RTK_T652,836555.13,818447.71,6.0,3.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T652.laz
+653,RTK_T653,836554.4,818451.12,8.0,7.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T653.laz
+654,RTK_T654,836554.025,818454.647,6.0,6.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T654.laz
+656,RTK_T656,836598.419,818550.996,,,,rtk_csv,False,
+657,RTK_T657,836601.106,818554.132,,,,rtk_csv,False,
+658,RTK_T658,836602.099,818553.851,,,,rtk_csv,False,
+659,RTK_T659,836601.994,818553.135,,,,rtk_csv,False,
+660,RTK_T660,836600.685,818549.464,14.0,16.0,Delonix regia 鳳凰木 (金鳳),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T660.las
+661,RTK_T661,836599.395,818547.933,6.0,3.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T661.las
+662,RTK_T662,836552.53,818489.546,8.0,9.0,Mallotus paniculatus 白楸,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T662.las
+663,RTK_T663,836551.29,818485.768,8.0,5.0,Litsea glutinosa 潺槁樹,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T663.las
+665,RTK_T665,836548.598,818487.769,11.0,6.0,Crateva unilocularis 樹頭菜,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T665.las
+666,RTK_T666,836544.649,818482.312,5.0,2.0,"Caryota mitis 短穗魚尾葵, 小魚尾葵",master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T666.las
+667,RTK_T667,836546.813,818479.714,15.0,9.0,Crateva unilocularis 樹頭菜,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T667.las
+668,RTK_T668,836547.688,818479.2,8.0,8.0,Litsea glutinosa 潺槁樹,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T668.las
+669,RTK_T669,836619.961,818567.508,10.0,8.0,Acacia confusa 台灣相思,master,False,
+671,RTK_T671,836624.924,818570.777,13.0,14.0,Acacia confusa 台灣相思,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T671.laz
+672,RTK_T672,836625.487,818570.878,15.0,11.0,Acacia confusa 台灣相思,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T672.laz
+674,RTK_T674,836631.942,818575.353,14.0,9.0,Acacia confusa 台灣相思,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T674.laz
+675,RTK_T675,836631.699,818574.2,12.0,6.0,Bombax ceiba 木棉,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T675.laz
+677,RTK_T677,836634.986,818574.914,7.0,6.0,Ficus elastica 印度榕(印度橡樹),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T677.laz
+678,RTK_T678,836636.463,818571.059,10.0,7.0,Mangifera indica 芒果,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T678.laz
+679,RTK_T679,836427.921,818346.944,3.0,2.0,Phoenix roebelenii 江邊刺葵 / 日本葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T679.laz
+680,RTK_T680,836567.29,818615.703,5.0,3.0,Schefflera actinophylla 傘樹,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T680.las
+681,RTK_T681,836557.856,818628.311,,,,rtk_csv,False,
+682,RTK_T682,836553.696,818636.196,5.0,2.0,Schefflera actinophylla 傘樹,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T682.las
+685,RTK_T685,836550.736,818660.364,3.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T685.las
+686,RTK_T686,836545.894,818657.153,3.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T686.las
+687,RTK_T687,836543.379,818655.3,3.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T687.las
+688,RTK_T688,836537.94,818651.65,4.0,3.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T688.las
+689,RTK_T689,,,2.0,1.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T689.las
+690,RTK_T690,836528.029,818647.491,3.0,4.0,Plumeria rubra var. acutifolia 黃雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T690.las
+691,RTK_T691,836526.494,818649.818,2.0,4.0,Plumeria rubra var. acutifolia 黃雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T691.las
+692,RTK_T692,836524.78,818652.338,2.0,2.0,Plumeria rubra var. acutifolia 黃雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T692.las
+693,RTK_T693,836523.294,818654.736,2.0,4.0,Plumeria rubra var. acutifolia 黃雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T693.las
+694,RTK_T694,836521.097,818656.848,2.0,2.0,Plumeria rubra var. acutifolia 黃雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T694.las
+695,RTK_T695,836544.697,818624.186,4.0,3.0,Schefflera actinophylla 傘樹,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T695.las
+696,RTK_T696,836546.955,818620.514,4.0,3.0,Schefflera actinophylla 傘樹,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T696.las
+697,RTK_T697,836553.716,818610.326,4.0,2.0,Schefflera actinophylla 傘樹,master,False,
+698,RTK_T698,836555.505,818608.291,,,,rtk_csv,False,
+699,RTK_T699,836566.564,818592.017,2.0,3.0,Plumeria rubra var. acutifolia 黃雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T699.las
+700,RTK_T700,836567.794,818590.085,3.0,4.0,Plumeria rubra var. acutifolia 黃雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T700.las
+701,RTK_T701,836569.357,818587.715,2.0,3.0,Plumeria rubra var. acutifolia 黃雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T701.las
+702,RTK_T702,836535.08,818631.08,4.0,4.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T702.laz
+703,RTK_T703,836533.85,818628.01,4.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T703.laz
+704,RTK_T704,836532.59,818625.27,5.0,4.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T704.laz
+705,RTK_T705,836531.56,818621.38,5.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T705.laz
+706,RTK_T706,836530.38,818618.3,4.0,3.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T706.laz
+707,RTK_T707,836529.602,818610.431,5.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T707.las
+708,RTK_T708,836527.97,818605.551,5.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T708.las
+709,RTK_T709,836527.181,818601.771,5.0,3.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T709.las
+710,RTK_T710,836523.534,818599.804,6.0,2.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T710.las
+711,RTK_T711,836522.755,818597.447,,,,rtk_csv,False,
+712,RTK_T712,836531.48,818662.4,6.0,2.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T712.laz
+713,RTK_T713,836526.17,818662.32,6.0,2.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T713.laz
+714,RTK_T714,836513.237,818666.064,4.0,3.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T714.las
+715,RTK_T715,836514.189,818670.051,4.0,4.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T715.las
+717,RTK_T717,836518.83,818673.73,5.0,2.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T717.laz
+718,RTK_T718,836526.73,818671.53,5.0,2.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T718.laz
+719,RTK_T719,836532.69,818669.39,5.0,1.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T719.laz
+720,RTK_T720,836525.6,818667.98,5.0,4.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T720.laz
+721,RTK_T721,836534.8,818694.62,4.0,3.0,Hyophorbe lagenicaulis 酒瓶椰子,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T721.laz
+722,RTK_T722,836537.39,818694.47,4.0,3.0,Hyophorbe lagenicaulis 酒瓶椰子,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T722.laz
+723,RTK_T723,836542.06,818690.06,1.0,1.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T723.laz
+724,RTK_T724,836541.06,818686.27,2.0,2.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T724.laz
+725,RTK_T725,836537.38,818683.79,4.0,2.0,Hyophorbe lagenicaulis 酒瓶椰子,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T725.laz
+726,RTK_T726,836530.21,818688.05,5.0,2.0,Hyophorbe lagenicaulis 酒瓶椰子,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T726.laz
+727,RTK_T727,836531.56,818691.08,4.0,2.0,Hyophorbe lagenicaulis 酒瓶椰子,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T727.laz
+728,RTK_T728,836535.24,818690.33,4.0,4.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T728.laz
+729,RTK_T729,836525.51,818637.56,2.0,3.0,Plumeria rubra 雞蛋花/ 紅雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T729.laz
+730,RTK_T730,836524.94,818635.57,2.0,3.0,Plumeria rubra 雞蛋花/ 紅雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T730.laz
+731,RTK_T731,836524.41,818630.58,3.0,4.0,Plumeria rubra 雞蛋花/ 紅雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T731.laz
+732,RTK_T732,836520.91,818637.92,6.0,4.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T732.laz
+733,RTK_T733,836519.7,818634.0,5.0,4.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T733.laz
+734,RTK_T734,836518.66,818630.32,6.0,4.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T734.laz
+735,RTK_T735,836522.02,818622.77,8.0,4.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T735.laz
+736,RTK_T736,836519.94,818623.28,8.0,4.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T736.laz
+737,RTK_T737,836501.98,818628.61,3.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T737.laz
+738,RTK_T738,836503.23,818632.07,4.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T738.laz
+739,RTK_T739,836504.71,818635.21,2.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T739.laz
+740,RTK_T740,836505.51,818639.27,4.0,3.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T740.laz
+741,RTK_T741,836506.463,818642.606,2.0,1.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T741.laz
+742,RTK_T742,836507.46,818646.34,4.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T742.laz
+743,RTK_T743,836508.35,818649.58,4.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T743.laz
+744,RTK_T744,836511.06,818635.04,3.0,2.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T744.laz
+746,RTK_T746,836513.83,818642.96,3.0,1.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T746.laz
+748,RTK_T748,836516.24,818650.46,2.0,1.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T748.laz
+750,RTK_T750,836525.82,818656.07,3.0,2.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T750.laz
+751,RTK_T751,836530.24,818654.72,2.0,1.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T751.laz
+752,RTK_T752,836534.16,818653.27,2.0,1.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T752.laz
+753,RTK_T753,836536.81,818661.05,2.0,1.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T753.laz
+754,RTK_T754,836537.59,818664.93,2.0,1.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T754.laz
+755,RTK_T755,836538.8,818668.68,3.0,2.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T755.laz
+756,RTK_T756,836539.96,818672.29,3.0,2.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T756.laz
+758,RTK_T758,836536.8,818677.56,3.0,1.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T758.laz
+761,RTK_T761,836526.25,818688.67,3.0,2.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T761.laz
+765,RTK_T765,836534.59,818699.99,3.0,1.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T765.laz
+766,RTK_T766,836540.84,818703.32,3.0,4.0,Plumeria rubra var. acutifolia 黃雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T766.laz
+767,RTK_T767,836521.41,818685.41,3.0,4.0,Plumeria rubra var. acutifolia 黃雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T767.laz
+768,RTK_T768,836518.87,818677.48,5.0,5.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T768.laz
+769,RTK_T769,836520.01,818680.7,5.0,5.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T769.laz
+770,RTK_T770,836521.41,818685.41,6.0,4.0,Terminalia mantaly 小葉欖仁,master,False,
+771,RTK_T771,836522.38,818688.85,6.0,5.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T771.laz
+772,RTK_T772,836523.11,818692.62,6.0,4.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T772.laz
+773,RTK_T773,836524.23,818697.19,6.0,3.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T773.laz
+775,RTK_T775,836543.02,818668.58,4.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T775.laz
+776,RTK_T776,836542.01,818665.93,3.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T776.laz
+777,RTK_T777,836540.53,818662.26,3.0,2.0,Lagerstroemia speciosa 大花紫薇 (洋紫薇),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T777.laz
+779,RTK_T779,836546.66,818648.93,4.0,4.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T779.laz
+781,RTK_T781,836548.58,818648.28,4.0,3.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T781.laz
+783,RTK_T783,836551.35,818647.28,4.0,5.0,Elaeocarpus hainanensis 水石榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T783.laz
+791,RTK_T791,836534.877,818588.632,13.0,24.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T791.laz
+792,RTK_T792,836533.99,818578.69,5.0,3.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T792.laz
+794,RTK_T794,836526.87,818577.37,6.0,3.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T794.laz
+796,RTK_T796,836529.74,818571.8,14.0,6.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T796.laz
+798,RTK_T798,836521.63,818566.04,3.0,3.0,Plumeria rubra var. acutifolia 黃雞蛋花,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T798.laz
+799,RTK_T799,836525.1,818563.52,15.0,16.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T799.laz
+802,RTK_T802,836536.121,818567.328,4.0,2.0,Macaranga tanarius 血桐,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T802.laz
+803,RTK_T803,836537.72,818569.84,10.0,6.0,Ficus religiosa 菩提樹,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T803.laz
+804,RTK_T804,836541.95,818571.0,6.0,2.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T804.laz
+805,RTK_T805,836543.24,818575.84,14.0,7.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T805.laz
+807,RTK_T807,836545.8,818572.464,7.0,4.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T807.laz
+808,RTK_T808,836546.811,818573.171,,,,rtk_csv,False,
+810,RTK_T810,836547.926,818574.829,6.0,2.0,Michelia x alba 白蘭,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T810.laz
+812,RTK_T812,836548.49,818579.11,7.0,3.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T812.laz
+814,RTK_T814,836556.05,818586.47,7.0,4.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T814.laz
+817,RTK_T817,836554.46,818596.27,9.0,4.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T817.laz
+818,RTK_T818,836553.079,818598.034,10.0,3.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T818.laz
+819,RTK_T819,836556.759,818597.482,,,,rtk_csv,False,
+820,RTK_T820,836557.71,818595.69,10.0,3.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T820.laz
+821,RTK_T821,836559.846,818596.652,10.0,3.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T821.laz
+822,RTK_T822,836560.326,818588.192,8.0,3.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T822.laz
+823,RTK_T823,836560.681,818589.482,10.0,7.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T823.laz
+824,RTK_T824,836561.53,818589.59,8.0,4.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T824.laz
+825,RTK_T825,836561.93,818591.207,15.0,11.0,Acacia auriculiformis 耳果相思 (耳葉相思),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T825.laz
+826,RTK_T826,836563.316,818592.872,8.0,6.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T826.laz
+827,RTK_T827,836562.51,818593.822,4.0,2.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T827.laz
+828,RTK_T828,836562.469,818594.15,5.0,2.0,Crateva trifoliata 鈍葉魚木,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T828.laz
+829,RTK_T829,836563.061,818594.433,4.0,2.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T829.las
+830,RTK_T830,836564.259,818595.852,8.0,2.0,Macaranga tanarius 血桐,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T830.laz
+831,RTK_T831,836569.251,818602.145,,,,rtk_csv,False,
+832,RTK_T832,836571.61,818604.53,5.0,3.0,Crateva unilocularis 樹頭菜,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T832.laz
+833,RTK_T833,836572.46,818606.08,6.0,2.0,Crateva unilocularis 樹頭菜,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T833.laz
+834,RTK_T834,836573.28,818607.44,7.0,4.0,Bischofia javanica 秋楓,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T834.laz
+835,RTK_T835,836574.11,818609.06,7.0,4.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T835.laz
+837,RTK_T837,836575.486,818610.021,,,,rtk_csv,False,
+838,RTK_T838,836576.082,818610.998,,,,rtk_csv,False,
+839,RTK_T839,836575.173,818610.284,11.0,12.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T839.laz
+840,RTK_T840,836574.6,818610.87,6.0,2.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T840.las
+841,RTK_T841,836575.85,818611.55,11.0,6.0,Bischofia javanica 秋楓,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T841.laz
+842,RTK_T842,836576.45,818612.19,6.0,2.0,Bischofia javanica 秋楓,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T842.laz
+843,RTK_T843,836576.07,818614.94,4.0,2.0,Bischofia javanica 秋楓,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T843.laz
+844,RTK_T844,836578.3,818617.22,4.0,4.0,Morus alba 桑,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T844.laz
+845,RTK_T845,836579.64,818618.02,6.0,5.0,Crateva unilocularis 樹頭菜,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T845.laz
+846,RTK_T846,,,13.0,8.0,Bischofia javanica 秋楓,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T846.las
+849,RTK_T849,836580.54,818631.35,7.0,6.0,Macaranga tanarius 血桐,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T849.laz
+851,RTK_T851,836552.273,818656.209,4.0,2.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T851.laz
+852,RTK_T852,836549.1,818657.209,4.0,2.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T852.laz
+853,RTK_T853,836546.313,818657.856,5.0,2.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T853.laz
+854,RTK_T854,836551.21,818670.32,8.0,4.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T854.laz
+855,RTK_T855,836552.07,818672.76,9.0,3.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T855.laz
+856,RTK_T856,836552.66,818675.89,9.0,4.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T856.laz
+857,RTK_T857,836558.18,818674.35,9.0,7.0,Morus alba 桑,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T857.laz
+858,RTK_T858,836559.59,818677.51,12.0,3.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T858.laz
+859,RTK_T859,836555.51,818678.96,12.0,3.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T859.laz
+860,RTK_T860,836553.36,818679.4,9.0,3.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T860.laz
+861,RTK_T861,836549.381,818679.139,6.0,3.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T861.laz
+863,RTK_T863,836557.35,818679.76,19.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T863.laz
+864,RTK_T864,836554.04,818681.65,8.0,2.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T864.laz
+865,RTK_T865,836557.65,818683.19,19.0,4.0,Livistona chinensis 蒲葵,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T865.laz
+868,RTK_T868,836549.42,818687.08,8.0,2.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T868.laz
+869,RTK_T869,836544.18,818686.92,5.0,2.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T869.laz
+870,RTK_T870,836544.91,818689.26,6.0,4.0,Ficus benjamina 垂葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T870.laz
+875,RTK_T875,836547.95,818697.0,5.0,4.0,Terminalia mantaly 小葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T875.laz
+879,RTK_T879,,,12.0,10.0,Albizia lebbeck 大葉合歡,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T879.las
+880,RTK_T880,836510.580301,818692.036508,16.0,8.0,Peltophorum pterocarpum 盾柱木(雙翼豆),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T880.las
+881,RTK_T881,836499.689301,818689.749886,10.0,10.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T881.las
+883,RTK_T883,836497.951,818685.181,14.0,7.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T883.laz
+884,RTK_T884,836498.5,818682.752,10.0,17.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T884.las
+886,RTK_T886,836496.872,818679.479,14.0,8.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T886.laz
+887,RTK_T887,836497.478,818676.922,10.0,12.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T887.laz
+888,RTK_T888,836497.508,818674.706,11.0,6.0,Albizia lebbeck 大葉合歡,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T888.las
+889,RTK_T889,836502.010201,818674.210702,20.0,15.0,Delonix regia 鳳凰木 (金鳳),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T889.las
+890,RTK_T890,,,11.0,5.0,Mangifera indica 芒果,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T890.las
+891,RTK_T891,836494.451,818669.078,12.0,8.0,Casuarina equisetifolia 木麻黃(牛尾松),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T891.laz
+892,RTK_T892,836496.086,818668.446,10.0,6.0,Casuarina equisetifolia 木麻黃(牛尾松),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T892.laz
+893,RTK_T893,836495.491,818664.9,17.0,5.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T893.laz
+894,RTK_T894,836497.425,818661.693,11.0,5.0,Peltophorum pterocarpum 盾柱木(雙翼豆),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T894.laz
+895,RTK_T895,836497.8,818659.4,21.0,7.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T895.laz
+896,RTK_T896,,,8.0,4.0,Celtis sinensis 朴樹,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T896.las
+897,RTK_T897,836492.803,818659.09,12.0,8.0,Peltophorum pterocarpum 盾柱木(雙翼豆),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T897.laz
+898,RTK_T898,836501.033,818657.217,20.0,10.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T898.laz
+899,RTK_T899,836499.495,818656.447,20.0,8.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T899.laz
+900,RTK_T900,836499.315,818652.952,18.0,10.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T900.laz
+901,RTK_T901,836490.067,818646.673,15.0,7.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T901.las
+902,RTK_T902,836489.206,818643.925,15.0,8.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T902.las
+903,RTK_T903,,,16.0,7.0,Aleurites moluccana 石栗,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T903.las
+904,RTK_T904,836493.185,818640.497,16.0,5.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T904.laz
+905,RTK_T905,836492.788,818637.97,21.0,13.0,Peltophorum pterocarpum 盾柱木(雙翼豆),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T905.laz
+906,RTK_T906,836494.564,818634.263,10.0,4.0,Litsea monopetala 假柿樹,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T906.las
+910,RTK_T910,836493.088,818624.329,7.0,8.0,Macaranga tanarius 血桐,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T910.las
+919,RTK_T919,836503.07,818701.66,11.0,6.0,Aleurites moluccana 石栗,master,False,
+940,RTK_T940,836580.83,818628.15,7.0,5.0,Macaranga tanarius 血桐,master,False,
+948,RTK_T948,836482.937,818641.349,9.0,7.0,Ficus microcarpa 細葉榕,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T948.laz
+952,RTK_T952,836479.836,818622.103,7.0,6.0,Macaranga tanarius 血桐,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T952.laz
+957,RTK_T957,836480.709,818611.773,9.0,3.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T957.laz
+958,RTK_T958,836481.665,818609.012,10.0,4.0,Aleurites moluccana 石栗,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T958.laz
+959,RTK_T959,836487.534,818609.483,6.0,8.0,Macaranga tanarius 血桐,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T959.laz
+962,RTK_T962,836687.74,818421.39,3.0,1.0,Osmanthus fragrans 桂花(木犀),master,False,
+963,RTK_T963,836687.13,818421.24,4.0,3.0,Senna surattensia 黃槐決明(黃槐),master,False,
+964,RTK_T964,836690.47,818420.76,4.0,2.0,Senna surattensia 黃槐決明(黃槐),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T964.laz
+965,RTK_T965,836689.31,818419.02,2.0,1.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T965.laz
+966,RTK_T966,836688.66,818419.06,4.0,3.0,Sterculia lanceolata 假蘋婆,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T966.laz
+967,RTK_T967,836686.397,818420.043,,,,rtk_csv,False,
+968,RTK_T968,836686.95,818416.47,4.0,2.0,Sterculia lanceolata 假蘋婆,master,False,
+969,RTK_T969,836687.54,818415.55,4.0,2.0,Sterculia lanceolata 假蘋婆,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T969.laz
+970,RTK_T970,836686.48,818413.71,3.0,2.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T970.laz
+971,RTK_T971,836687.26,818410.66,3.0,2.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T971.laz
+972,RTK_T972,836687.32,818408.89,2.0,2.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T972.laz
+973,RTK_T973,836684.51,818407.91,2.0,1.0,Osmanthus fragrans 桂花(木犀),master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T973.laz
+975,RTK_T975,836534.604,818228.581,4.0,2.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T975.laz
+976,RTK_T976,836532.903,818222.186,4.0,2.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T976.laz
+977,RTK_T977,836529.83,818211.368,4.0,2.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T977.laz
+978,RTK_T978,836527.911,818203.653,5.0,2.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T978.laz
+979,RTK_T979,836520.339,818199.534,4.0,2.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T979.laz
+980,RTK_T980,836522.029,818206.03,4.0,2.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T980.laz
+981,RTK_T981,836523.791,818212.558,4.0,2.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T981.laz
+982,RTK_T982,836525.591,818219.172,4.0,1.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T982.laz
+983,RTK_T983,836528.509,818230.19,5.0,2.0,Terminalia mantaly 'Tricolour' 錦葉欖仁,master,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T983.laz
+996,RTK_T996,,,2.0,2.0,Plumeria rubra 雞蛋花/ 紅雞蛋花,,True,Z:\Carbon Neutrality\Segmented Individual Trees\RTK_T996.las
+997,RTK_T997,836553.582,818688.834,,,,rtk_csv,False,

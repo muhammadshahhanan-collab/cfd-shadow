@@ -1,0 +1,26 @@
+{
+  "n_buildings": 115,
+  "library_name_hits": 1,
+  "n_roads": 399,
+  "road_types": {
+    "trunk": 71,
+    "primary": 19,
+    "secondary": 26,
+    "tertiary": 7,
+    "service": 41,
+    "pedestrian": 1,
+    "footway": 186,
+    "path": 4,
+    "steps": 44
+  },
+  "origin_hk80": [
+    836318.0,
+    818150.0,
+    2.0
+  ],
+  "extent_m": [
+    432.0,
+    576.0
+  ],
+  "map_ref": "https://3d.map.gov.hk/"
+}

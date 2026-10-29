@@ -1,0 +1,36 @@
+{
+  "trees_csv": "data/trees_campus_all.csv",
+  "n_trees_catalog": 784,
+  "n_trees_with_xy": 758,
+  "n_segmented_laz": 744,
+  "domain": {
+    "origin": [
+      836318.0,
+      818148.0,
+      0.0
+    ],
+    "extent_m": [
+      432.0,
+      576.0,
+      0.0
+    ],
+    "voxel_size_m": 2.0,
+    "shape_ij": [
+      216,
+      288
+    ],
+    "crs_note": "HK1980 Grid (Easting/Northing from PolyU RTK / master)"
+  },
+  "lai_from_lad_plus_inventory": {
+    "mean_occupied": 4.617429733276367,
+    "max": 43.868099212646484,
+    "n_canopy_cells": 4381,
+    "cells_from_lad": 3020,
+    "cells_from_inventory": 1361,
+    "trees_painted_inventory": 326
+  },
+  "previous_seed135_clip": {
+    "n_trees_meta": 496,
+    "issue": "N extent stopped at 818600 \u2014 Z-block missing"
+  }
+}

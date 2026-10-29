@@ -1,0 +1,28 @@
+# Dependencies / build
+node_modules/
+dashboard/node_modules/
+dashboard/dist/
+dist/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Local scratch / huge regenerable dumps (keep dashboard/public assets)
+*.laz
+*.las
+data/buildings/*_raw*.geojson
+outputs/tmp/

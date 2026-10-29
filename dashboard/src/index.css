@@ -1,0 +1,229 @@
+:root {
+  --bg-0: #0a1218;
+  --bg-1: #0f1a22;
+  --ink: #e8eef4;
+  --muted: #9aa8b5;
+  --accent: #5ec8a8;
+  --border: rgba(232, 238, 244, 0.12);
+  --text-secondary: #b4c0cc;
+  --text-accent: #5ec8a8;
+  --border-dark: rgba(255, 255, 255, 0.12);
+  --radius-sm: 10px;
+  font-family: "DM Sans", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--bg-0);
+  line-height: 1.4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 12% -10%, rgba(94, 200, 168, 0.12), transparent 55%),
+    radial-gradient(900px 500px at 90% 0%, rgba(70, 120, 180, 0.14), transparent 50%),
+    linear-gradient(180deg, #0c151c 0%, #071018 100%);
+}
+
+.app-shell {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+  min-height: 100vh;
+  padding: 18px 20px 16px;
+  gap: 12px;
+}
+
+.app-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px 28px;
+}
+
+.app-brand h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.app-kicker {
+  margin: 0 0 2px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.app-lede {
+  margin: 0;
+  max-width: 42rem;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.app-main {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(7, 17, 28, 0.72);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+}
+
+.pointcloud-viewer {
+  display: grid;
+  gap: 0;
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+}
+
+.pointcloud-canvas-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: min(72vh, 720px);
+  overflow: hidden;
+  background: #07111c;
+}
+
+.pointcloud-canvas-wrap canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.pointcloud-loading,
+.pointcloud-error {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 10px;
+  text-align: center;
+  background: rgba(7, 17, 28, 0.92);
+  color: var(--text-secondary);
+  font-size: 13px;
+  z-index: 2;
+}
+
+.pointcloud-spinner {
+  width: 28px;
+  height: 28px;
+  margin: 0 auto;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-top-color: var(--text-accent);
+  border-radius: 50%;
+  animation: pointcloud-spin 0.8s linear infinite;
+}
+
+@keyframes pointcloud-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.wind-flow-viewer {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+}
+
+.wind-flow-badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #f5f7fa;
+  font-size: 12px;
+  line-height: 1.35;
+  pointer-events: none;
+}
+
+.wind-flow-badge strong {
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.wind-flow-badge-note {
+  margin-top: 2px;
+  opacity: 0.72;
+  font-size: 10px;
+}
+
+.wind-flow-legend {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2;
+  width: 200px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.58);
+  color: #f5f7fa;
+  pointer-events: none;
+}
+
+.wind-flow-legend-bar {
+  height: 12px;
+  border-radius: 3px;
+  background: linear-gradient(
+    90deg,
+    #30123b 0%,
+    #4662d7 18%,
+    #28bceb 35%,
+    #32f17f 50%,
+    #d1e834 65%,
+    #f9a531 82%,
+    #c73e1d 100%
+  );
+}
+
+.wind-flow-legend-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 4px;
+  font-size: 10px;
+  opacity: 0.9;
+}
+
+.wind-flow-legend-hint {
+  margin: 6px 0 0;
+  font-size: 10px;
+  line-height: 1.3;
+  opacity: 0.78;
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    padding: 12px;
+  }
+
+  .pointcloud-canvas-wrap {
+    min-height: 58vh;
+  }
+}

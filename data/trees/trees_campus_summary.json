@@ -1,0 +1,42 @@
+{
+  "segmented_laz_files": 744,
+  "catalog_rows": 784,
+  "with_xy": 758,
+  "missing_xy": 26,
+  "master_rows": 751,
+  "rtk_coord_rows": 782,
+  "trees_north_of_seed135": 157,
+  "approx_z_block_n_gt_818600": 157,
+  "lai": {
+    "mean_occupied": 4.617429733276367,
+    "max": 43.868099212646484,
+    "n_canopy_cells": 4381,
+    "cells_from_lad": 3020,
+    "cells_from_inventory": 1361,
+    "trees_painted_inventory": 326
+  },
+  "domain": {
+    "origin": [
+      836318.0,
+      818148.0,
+      0.0
+    ],
+    "extent_m": [
+      432.0,
+      576.0,
+      0.0
+    ],
+    "voxel_size_m": 2.0,
+    "shape_ij": [
+      216,
+      288
+    ],
+    "crs_note": "HK1980 Grid (Easting/Northing from PolyU RTK / master)"
+  },
+  "paths": {
+    "trees_csv": "D:\\CFD\\ET\\data\\trees_campus_all.csv",
+    "lai_npy": "D:\\CFD\\ET\\data\\lai_grid_campus.npy",
+    "lai_domain": "D:\\CFD\\ET\\data\\lai_domain_campus.json"
+  },
+  "note": "Campus LAI merges seed135 LiDAR LAD (preferred) with inventory crown disks so Z-block / north trees enter ET cooling. Still not DART."
+}
