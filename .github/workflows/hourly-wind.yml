@@ -1,0 +1,62 @@
+name: Hourly HKO wind remap
+
+on:
+  schedule:
+    # ~5 minutes past each hour (UTC). HKO feed is continuous; viewers poll often.
+    - cron: "5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hourly-wind
+  cancel-in-progress: false
+
+jobs:
+  remap-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install numpy
+        run: pip install --quiet numpy
+
+      - name: Remap wind from HKO King's Park
+        run: python scripts/hourly_wind_update.py
+
+      - name: Commit updated wind on main (if changed)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dashboard/public/wind/wind_latest.json data/wind/wind_latest.json
+          if git diff --staged --quiet; then
+            echo "No wind change to commit on main."
+          else
+            git commit -m "chore: hourly HKO King's Park wind remap"
+            git push origin main
+          fi
+
+      - name: Publish wind_latest.json to gh-pages
+        run: |
+          git fetch origin gh-pages:gh-pages
+          git worktree add ../gh-pages gh-pages
+          cp dashboard/public/wind/wind_latest.json ../gh-pages/wind/wind_latest.json
+          cd ../gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add wind/wind_latest.json
+          if git diff --staged --quiet; then
+            echo "gh-pages wind already up to date."
+          else
+            git commit -m "chore: hourly HKO wind for live Pages"
+            git push origin gh-pages
+          fi
