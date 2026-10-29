@@ -1151,7 +1151,7 @@ export default function WindFlowViewer() {
         try {
           const gltf = await new Promise((resolve, reject) => {
             new GLTFLoader().load(
-              `/trees/trees_solid.glb?_v=${Date.now()}`,
+              `${import.meta.env.BASE_URL}trees/trees_solid.glb?_v=${Date.now()}`,
               resolve,
               undefined,
               reject
