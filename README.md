@@ -1,12 +1,16 @@
-# CFD_Shadow
+﻿# CFD_Shadow
 
-New CFD / trees / wind base (separate from PolyU ET product).
+Standalone CFD / trees / wind dashboard (separate from the PolyU ET product).
 
-**Start here:** [AGENT_HANDOFF.md](AGENT_HANDOFF.md)
+## Live
 
-## Wind dashboard
+https://majidnazeer.github.io/cfd-shadow/
 
-Standalone viewer for the existing tree-based CFD package:
+## Repo
+
+https://github.com/majidnazeer/cfd-shadow
+
+## Local
 
 ```bash
 cd dashboard
@@ -14,7 +18,7 @@ npm install
 npm run dev
 ```
 
-Open http://127.0.0.1:5175/ (PolyU dashboard stays on 5174)
+Open http://127.0.0.1:5175/
 
 Static layers:
 
@@ -22,11 +26,11 @@ Static layers:
 - `dashboard/public/buildings/` — LandsD ~1.5 km footprints + ped paths
 - `dashboard/public/trees/` — measured LAZ crowns (`crowns.bin` / `trees_solid.glb`)
 
-Rebuild context / crowns:
+## Redeploy
 
 ```bash
-python scripts/build_dashboard_layers.py
-D:\CFD\.venv\Scripts\python.exe scripts/export_laz_crowns.py
-D:\CFD\.venv\Scripts\python.exe scripts/export_solid_trees.py
+cd dashboard
+npm run build
 ```
 
+Then publish `dashboard/dist` to the `gh-pages` branch (or ask the agent to redeploy).
