@@ -4,11 +4,11 @@ Standalone CFD / trees / wind dashboard (separate from the PolyU ET product).
 
 ## Live
 
-https://majidnazeer.github.io/cfd-shadow/
+https://muhammadshahhanan-collab.github.io/cfd-shadow/
 
 ## Repo
 
-https://github.com/majidnazeer/cfd-shadow
+https://github.com/muhammadshahhanan-collab/cfd-shadow
 
 ## Local
 
@@ -33,4 +33,4 @@ cd dashboard
 npm run build
 ```
 
-Then publish `dashboard/dist` to the `gh-pages` branch (or ask the agent to redeploy).
+Then publish `dashboard/dist` to the `gh-pages` branch.
