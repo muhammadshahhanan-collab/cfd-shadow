@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+import * as SunCalc from "suncalc";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import {
@@ -13,6 +14,10 @@ import {
   getWindStatus,
   getWindTrees,
 } from "../services/windApi";
+
+/** PolyU main campus (WGS84) — solar ephemeris. */
+const POLYU_LAT = 22.3045;
+const POLYU_LON = 114.1795;
 
 /** Package defaults from wind_latest.json viz (n_particles_default / time_scale). */
 const TIME_SCALE = 10;
@@ -438,7 +443,7 @@ function buildBuildings(buildingsPayload, campusRings) {
     geom.computeVertexNormals();
 
     const wallMesh = new THREE.Mesh(geom, wall);
-    wallMesh.castShadow = false;
+    wallMesh.castShadow = true;
     wallMesh.receiveShadow = true;
     group.add(wallMesh);
 
@@ -446,7 +451,10 @@ function buildBuildings(buildingsPayload, campusRings) {
     roofGeom.rotateX(-Math.PI / 2);
     roofGeom.translate(0, base + h + 0.04, 0);
     roofGeom.computeVertexNormals();
-    group.add(new THREE.Mesh(roofGeom, roof));
+    const roofMesh = new THREE.Mesh(roofGeom, roof);
+    roofMesh.castShadow = true;
+    roofMesh.receiveShadow = true;
+    group.add(roofMesh);
 
     const edges = new THREE.EdgesGeometry(geom, 12);
     const edgeLines = new THREE.LineSegments(edges, edge);
@@ -717,11 +725,150 @@ function formatStamp(ts) {
   return String(ts).replace("T", " ").slice(0, 16);
 }
 
+/** Hong Kong civil time → Date (UTC+8). */
+function hkDateFromParts(dateStr, minutesOfDay) {
+  const [y, m, d] = dateStr.split("-").map(Number);
+  const hh = Math.floor(minutesOfDay / 60);
+  const mm = minutesOfDay % 60;
+  const pad = (n) => String(n).padStart(2, "0");
+  return new Date(`${y}-${pad(m)}-${pad(d)}T${pad(hh)}:${pad(mm)}:00+08:00`);
+}
+
+function todayHkDateStr() {
+  const now = new Date();
+  // Format calendar day in HKT
+  const fmt = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Hong_Kong",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+  return fmt.format(now); // YYYY-MM-DD
+}
+
+function hkMinutesNow() {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Hong_Kong",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).formatToParts(new Date());
+  const hh = Number(parts.find((p) => p.type === "hour")?.value || 12);
+  const mm = Number(parts.find((p) => p.type === "minute")?.value || 0);
+  return hh * 60 + mm;
+}
+
+/**
+ * SunCalc v2 returns altitude/azimuth in **degrees** (v1 was radians).
+ * Normalize to radians for trig; keep degree copies for UI.
+ */
+function sunPositionRad(date) {
+  const pos = SunCalc.getPosition(date, POLYU_LAT, POLYU_LON);
+  let alt = Number(pos.altitude);
+  let az = Number(pos.azimuth);
+  // Heuristic: values beyond ±90° alt or ±180° az are degrees (v2).
+  const inDegrees = Math.abs(alt) > Math.PI / 2 + 0.05 || Math.abs(az) > Math.PI + 0.05;
+  if (inDegrees) {
+    alt *= Math.PI / 180;
+    az *= Math.PI / 180;
+  }
+  return { altitude: alt, azimuth: az };
+}
+
+/**
+ * Sun unit vector toward the sun in viewer frame (x east, y up, z = -north).
+ * Azimuth from south toward west (SunCalc convention).
+ */
+function sunDirectionViewer(date) {
+  const { altitude: alt, azimuth: az } = sunPositionRad(date);
+  const ch = Math.cos(alt);
+  const east = -Math.sin(az) * ch;
+  const north = -Math.cos(az) * ch;
+  const up = Math.sin(alt);
+  const dir = new THREE.Vector3(east, up, -north);
+  if (dir.lengthSq() < 1e-8) {
+    return { dir: new THREE.Vector3(0, 1, 0), altitude: alt, azimuth: az };
+  }
+  dir.normalize();
+  return { dir, altitude: alt, azimuth: az };
+}
+
+function solarDayBoundsHk(dateStr) {
+  const noon = hkDateFromParts(dateStr, 12 * 60);
+  const times = SunCalc.getTimes(noon, POLYU_LAT, POLYU_LON);
+  const toMinutes = (dt) => {
+    if (!dt || Number.isNaN(dt.getTime())) return null;
+    const parts = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Asia/Hong_Kong",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }).formatToParts(dt);
+    const hh = Number(parts.find((p) => p.type === "hour")?.value || 0);
+    const mm = Number(parts.find((p) => p.type === "minute")?.value || 0);
+    return hh * 60 + mm;
+  };
+  return {
+    sunriseMin: toMinutes(times.sunrise),
+    sunsetMin: toMinutes(times.sunset),
+  };
+}
+
+function enableMeshShadows(root, { cast = true, receive = true } = {}) {
+  if (!root) return;
+  root.traverse((obj) => {
+    if (obj.isMesh) {
+      obj.castShadow = cast;
+      obj.receiveShadow = receive;
+    }
+  });
+}
+
+function formatHm(minutesOfDay) {
+  const hh = Math.floor(minutesOfDay / 60) % 24;
+  const mm = minutesOfDay % 60;
+  return `${String(hh).padStart(2, "0")}:${String(mm).padStart(2, "0")}`;
+}
+
 export default function WindFlowViewer() {
   const wrapRef = useRef(null);
+  const solarApiRef = useRef(null);
   const [status, setStatus] = useState("loading");
   const [error, setError] = useState("");
   const [meta, setMeta] = useState(null);
+  const [shadowDate, setShadowDate] = useState(todayHkDateStr);
+  // Default near midday so shadows are visible (full-day slider is mostly night).
+  const [shadowMinutes, setShadowMinutes] = useState(12 * 60);
+  const [shadowPlaying, setShadowPlaying] = useState(false);
+  const [dayBounds, setDayBounds] = useState({ sunriseMin: 6 * 60, sunsetMin: 18 * 60 });
+  const [solarInfo, setSolarInfo] = useState({
+    altitudeDeg: 0,
+    azimuthDeg: 0,
+    aboveHorizon: false,
+  });
+
+  useEffect(() => {
+    setDayBounds(solarDayBoundsHk(shadowDate));
+  }, [shadowDate]);
+
+  useEffect(() => {
+    solarApiRef.current?.setTime?.(shadowDate, shadowMinutes);
+  }, [shadowDate, shadowMinutes]);
+
+  useEffect(() => {
+    if (!shadowPlaying) return undefined;
+    const id = window.setInterval(() => {
+      setShadowMinutes((m) => {
+        const start = dayBounds.sunriseMin ?? 6 * 60;
+        const end = dayBounds.sunsetMin ?? 18 * 60;
+        const next = m + 3;
+        if (next > end) return start;
+        if (next < start) return start;
+        return next;
+      });
+    }, 80);
+    return () => window.clearInterval(id);
+  }, [shadowPlaying, dayBounds]);
 
   useEffect(() => {
     let disposed = false;
@@ -741,6 +888,8 @@ export default function WindFlowViewer() {
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.12;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     wrap.appendChild(renderer.domElement);
 
     // Natural taupe / mink ground (clay-model look) — flat terrain only, not a podium slab.
@@ -765,17 +914,146 @@ export default function WindFlowViewer() {
     controls.autoRotateSpeed = 0.28;
     controls.maxPolarAngle = Math.PI * 0.48;
 
-    scene.add(new THREE.HemisphereLight(0xb8cce0, 0x2a2218, 0.55));
-    scene.add(new THREE.AmbientLight(0xdde6f2, 0.28));
-    const sun = new THREE.DirectionalLight(0xfff1dc, 1.15);
-    sun.position.set(260, 420, 180);
+    // Capture hook filled after solar + domain state exist (scripts/capture_dashboard_gifs.py).
+    window.__CFD_SHADOW__ = { ready: false };
+
+    scene.add(new THREE.HemisphereLight(0xb8cce0, 0x2a2218, 0.42));
+    scene.add(new THREE.AmbientLight(0xdde6f2, 0.22));
+    // Solar directional light — pose updated from SunCalc (ShadeMap-style).
+    const sun = new THREE.DirectionalLight(0xfff1dc, 1.35);
+    sun.castShadow = true;
+    sun.shadow.mapSize.set(2048, 2048);
+    sun.shadow.bias = -0.00035;
+    sun.shadow.normalBias = 0.04;
+    const shadowSpan = 520;
+    sun.shadow.camera.left = -shadowSpan;
+    sun.shadow.camera.right = shadowSpan;
+    sun.shadow.camera.top = shadowSpan;
+    sun.shadow.camera.bottom = -shadowSpan;
+    sun.shadow.camera.near = 10;
+    sun.shadow.camera.far = 2200;
     scene.add(sun);
-    const fill = new THREE.DirectionalLight(0x7aa0c8, 0.42);
+    scene.add(sun.target);
+    const fill = new THREE.DirectionalLight(0x7aa0c8, 0.28);
     fill.position.set(-200, 140, -160);
     scene.add(fill);
-    const rim = new THREE.DirectionalLight(0xffc8a0, 0.22);
+    const rim = new THREE.DirectionalLight(0xffc8a0, 0.14);
     rim.position.set(80, 60, -280);
     scene.add(rim);
+
+    const solarFocus = new THREE.Vector3(200, 0, -200);
+    let lastSolarDate = shadowDate;
+    let lastSolarMinutes = shadowMinutes;
+    function applySolarTime(dateStr, minutesOfDay) {
+      lastSolarDate = dateStr;
+      lastSolarMinutes = minutesOfDay;
+      const when = hkDateFromParts(dateStr, minutesOfDay);
+      const { dir, altitude, azimuth } = sunDirectionViewer(when);
+      const above = altitude > 0.02;
+      const dist = 900;
+      sun.position.set(
+        solarFocus.x + dir.x * dist,
+        solarFocus.y + dir.y * dist,
+        solarFocus.z + dir.z * dist
+      );
+      sun.target.position.copy(solarFocus);
+      sun.target.updateMatrixWorld();
+      sun.intensity = above ? 1.35 : 0.05;
+      sun.castShadow = above;
+      fill.intensity = above ? 0.28 : 0.45;
+      if (!disposed) {
+        setSolarInfo({
+          altitudeDeg: (altitude * 180) / Math.PI,
+          azimuthDeg: (((azimuth * 180) / Math.PI) % 360 + 360) % 360,
+          aboveHorizon: above,
+        });
+      }
+    }
+    solarApiRef.current = {
+      setTime: applySolarTime,
+      setFocus: (x, yNorth) => {
+        solarFocus.set(x, 0, -yNorth);
+        applySolarTime(lastSolarDate, lastSolarMinutes);
+      },
+    };
+    applySolarTime(lastSolarDate, lastSolarMinutes);
+
+    function focusMetrics() {
+      const fx0 = S?.focus?.x0;
+      const fx1 = S?.focus?.x1;
+      const fy0 = S?.focus?.y0;
+      const fy1 = S?.focus?.y1;
+      if (fx0 == null) return null;
+      const cx = 0.5 * (fx0 + fx1);
+      const cy = 0.5 * (fy0 + fy1);
+      const cz = Math.min(42, (S.nz || 40) * (S.dz || 1) * 0.35);
+      const span = Math.max(fx1 - fx0, fy1 - fy0, 380);
+      return { cx, cy, cz, span };
+    }
+
+    function setOrbitCamera(azDeg, elevDeg, distScale = 1) {
+      const m = focusMetrics();
+      if (!m) return false;
+      controls.autoRotate = false;
+      controls.enableDamping = false;
+      const elev = (Math.max(12, Math.min(58, elevDeg)) * Math.PI) / 180;
+      const az = (azDeg * Math.PI) / 180;
+      const dist = m.span * 0.82 * distScale;
+      const target = new THREE.Vector3(m.cx, m.cz * 0.28, -m.cy);
+      controls.target.copy(target);
+      camera.position.set(
+        target.x + dist * Math.cos(elev) * Math.sin(az),
+        Math.max(32, target.y + dist * Math.sin(elev)),
+        target.z + dist * Math.cos(elev) * Math.cos(az)
+      );
+      camera.lookAt(target);
+      controls.update();
+      return true;
+    }
+
+    Object.assign(window.__CFD_SHADOW__, {
+      setPlanView() {
+        const m = focusMetrics();
+        if (!m) return false;
+        controls.target.set(m.cx, m.cz * 0.45, -m.cy);
+        camera.position.set(m.cx - m.span * 0.55, m.span * 0.48, -m.cy + m.span * 0.52);
+        controls.autoRotate = false;
+        controls.update();
+        renderer.render(scene, camera);
+        return true;
+      },
+      setOrbitView(azDeg, elevDeg, distScale = 1) {
+        const ok = setOrbitCamera(azDeg, elevDeg, distScale);
+        if (ok) renderer.render(scene, camera);
+        return ok;
+      },
+      setAutoRotate(on) {
+        controls.autoRotate = !!on;
+      },
+      setWindVisible(on) {
+        const v = !!on;
+        if (S.lines) S.lines.visible = v;
+        if (S.heads) S.heads.visible = v;
+      },
+      setSolarTime(dateStr, minutesOfDay) {
+        applySolarTime(String(dateStr), Number(minutesOfDay));
+        renderer.render(scene, camera);
+        return {
+          altitudeDeg: (sun.position.y > solarFocus.y ? 1 : 0),
+          aboveHorizon: sun.castShadow,
+        };
+      },
+      getDayBounds(dateStr) {
+        return solarDayBoundsHk(String(dateStr || lastSolarDate));
+      },
+      getSolarDate() {
+        return lastSolarDate;
+      },
+      snapshotDataUrl(quality = 0.82) {
+        renderer.render(scene, camera);
+        return renderer.domElement.toDataURL("image/jpeg", quality);
+      },
+    });
 
     const resize = () => {
       const w = wrap.clientWidth || 800;
@@ -1117,6 +1395,7 @@ export default function WindFlowViewer() {
       controls.target.set(cx, cz * 0.45, -cy);
       camera.position.set(cx - span * 0.55, span * 0.48, -cy + span * 0.52);
       controls.update();
+      solarApiRef.current?.setFocus?.(cx, cy);
 
       if (windDomainOutline) {
         scene.remove(windDomainOutline);
@@ -1135,6 +1414,7 @@ export default function WindFlowViewer() {
       });
       setStatus("ready");
       setError("");
+      if (window.__CFD_SHADOW__) window.__CFD_SHADOW__.ready = true;
     }
 
     async function loadLazTrees() {
@@ -1162,6 +1442,7 @@ export default function WindFlowViewer() {
           treesGroup = gltf.scene;
           treesGroup.userData.n_crowns = solidMeta.data.n_trees;
           treesGroup.userData.source = "laz_solid";
+          enableMeshShadows(treesGroup, { cast: true, receive: true });
           scene.add(treesGroup);
           treeCount = solidMeta.data.n_trees;
           ok = true;
@@ -1217,6 +1498,7 @@ export default function WindFlowViewer() {
           buildingsGroup = buildBuildings(bldRes.data, campusRings);
           buildingsGroup.userData.n_buildings = nB;
           buildingsGroup.userData.style_rev = styleRev;
+          enableMeshShadows(buildingsGroup, { cast: true, receive: true });
           scene.add(buildingsGroup);
         }
       }
@@ -1233,6 +1515,7 @@ export default function WindFlowViewer() {
             treesGroup = buildTrees(treeRes.data);
             treesGroup.userData.n_crowns = nT;
             treesGroup.userData.source = "cartoon_fallback";
+            enableMeshShadows(treesGroup, { cast: true, receive: true });
             scene.add(treesGroup);
             treeCount = nT;
           }
@@ -1301,6 +1584,8 @@ export default function WindFlowViewer() {
 
     return () => {
       disposed = true;
+      if (window.__CFD_SHADOW__) delete window.__CFD_SHADOW__;
+      solarApiRef.current = null;
       cancelAnimationFrame(raf);
       window.clearInterval(pollTimer);
       window.clearInterval(hourTimer);
@@ -1335,7 +1620,7 @@ export default function WindFlowViewer() {
       {status === "ready" && meta ? (
         <>
           <div className="wind-flow-badge">
-            <strong>CFD Shadow · campus wind</strong>
+            <strong>CFD Shadow · campus wind + sun shade</strong>
             <span>{formatStamp(meta.timestamp || meta.updated_at)}</span>
             <span>
               HKO {Number(meta.wind_from_deg ?? 0).toFixed(0)}° ·{" "}
@@ -1345,9 +1630,53 @@ export default function WindFlowViewer() {
               {Number(meta.n_trees || 0)} measured crowns · canopy drag on
             </span>
             <span className="wind-flow-badge-note">
-              Tracers at 1.5 m AGL · PolyU + Z core air (~572 m N) · LAD canopy
-              slowing on Z pad (not full OpenFOAM re-solve yet)
+              Direct-sun shadows: SunCalc ephemeris + LAZ crowns + LandsD buildings
+              (see docs/SHADOW_METHOD.md)
             </span>
+          </div>
+          <div className="shadow-time-panel" aria-label="Solar shadow time control">
+            <div className="shadow-time-row">
+              <label htmlFor="shadow-date">Date (HKT)</label>
+              <input
+                id="shadow-date"
+                type="date"
+                value={shadowDate}
+                onChange={(e) => {
+                  setShadowPlaying(false);
+                  setShadowDate(e.target.value);
+                }}
+              />
+              <button
+                type="button"
+                className="shadow-play-btn"
+                onClick={() => setShadowPlaying((p) => !p)}
+              >
+                {shadowPlaying ? "Pause" : "Play day"}
+              </button>
+            </div>
+            <div className="shadow-time-row">
+              <label htmlFor="shadow-minutes">{formatHm(shadowMinutes)}</label>
+              <input
+                id="shadow-minutes"
+                type="range"
+                min={0}
+                max={24 * 60 - 1}
+                step={1}
+                value={shadowMinutes}
+                onChange={(e) => {
+                  setShadowPlaying(false);
+                  setShadowMinutes(Number(e.target.value));
+                }}
+              />
+            </div>
+            <p className="shadow-time-meta">
+              Daylight ~{formatHm(dayBounds.sunriseMin ?? 0)}–
+              {formatHm(dayBounds.sunsetMin ?? 0)} HKT
+              {" · "}
+              {solarInfo.aboveHorizon
+                ? `Sun alt ${solarInfo.altitudeDeg.toFixed(1)}° · az from S ${solarInfo.azimuthDeg.toFixed(0)}°`
+                : "Night — drag slider into daylight for shadows"}
+            </p>
           </div>
           <div className="wind-flow-legend" aria-label="Wind speed colour scale">
             <div className="wind-flow-legend-bar" />
@@ -1357,7 +1686,7 @@ export default function WindFlowViewer() {
               <span>{Number(meta.vmax_mps || 0).toFixed(1)}</span>
             </div>
             <p className="wind-flow-legend-hint">
-              1.5 m AGL trails · blue slows in canopy · red accelerates around buildings
+              1.5 m AGL trails · scrub time for tree/building shadows
             </p>
           </div>
         </>

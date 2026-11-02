@@ -174,6 +174,70 @@ body {
   font-size: 10px;
 }
 
+.shadow-time-panel {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 2;
+  width: min(360px, calc(100% - 230px));
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.62);
+  color: #f5f7fa;
+  font-size: 12px;
+}
+
+.shadow-time-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.shadow-time-row label {
+  flex: 0 0 auto;
+  min-width: 3.2rem;
+  opacity: 0.9;
+}
+
+.shadow-time-row input[type="date"] {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f5f7fa;
+  padding: 4px 6px;
+  font: inherit;
+}
+
+.shadow-time-row input[type="range"] {
+  flex: 1;
+  min-width: 0;
+  accent-color: var(--accent);
+}
+
+.shadow-play-btn {
+  border: 1px solid rgba(94, 200, 168, 0.45);
+  border-radius: 6px;
+  background: rgba(94, 200, 168, 0.15);
+  color: #e8eef4;
+  font: inherit;
+  font-size: 11px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.shadow-play-btn:hover {
+  background: rgba(94, 200, 168, 0.28);
+}
+
+.shadow-time-meta {
+  margin: 0;
+  font-size: 10px;
+  opacity: 0.78;
+}
+
 .wind-flow-legend {
   position: absolute;
   right: 12px;

@@ -9,8 +9,8 @@ export default function App() {
           <h1>Campus wind</h1>
         </div>
         <p className="app-lede">
-          Wind on PolyU + Block Z · dark-brown LandsD buildings · measured LAZ crowns.
-          Drag to orbit · scroll to zoom.
+          Wind + direct-sun tree/building shadows (time scrub) · LandsD massing · LAZ crowns.
+          Drag to orbit · scroll to zoom · scrub HKT time for shade.
         </p>
       </header>
       <main className="app-main">
