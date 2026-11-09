@@ -1,0 +1,21 @@
+{
+  "tag": "hunghom_r1250",
+  "radius_m": 1250.0,
+  "dx_m": 10.0,
+  "center_old_local": [
+    200.20833333333337,
+    197.65000000000003
+  ],
+  "shift_m": [
+    1049.7916666666665,
+    1052.35
+  ],
+  "extent_m": [
+    2500.0,
+    2500.0,
+    96.0
+  ],
+  "method": "single_station_KP_freestream_pad_plus_LandsD_solids",
+  "station": "King's Park",
+  "note": "Hung Hom district demo (~1250 m radius): native campus CFD UVW retained; outer pad = King's Park freestream (U\u22485.28 m/s) + LandsD solid stamp. Not a full OpenFOAM re-solve."
+}
