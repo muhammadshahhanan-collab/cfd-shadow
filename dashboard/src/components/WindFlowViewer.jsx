@@ -443,8 +443,9 @@ function buildBuildings(buildingsPayload, campusRings) {
     geom.computeVertexNormals();
 
     const wallMesh = new THREE.Mesh(geom, wall);
+    // Cast onto ground only — receiving on buildings causes shadow-map stripe acne.
     wallMesh.castShadow = true;
-    wallMesh.receiveShadow = true;
+    wallMesh.receiveShadow = false;
     group.add(wallMesh);
 
     const roofGeom = new THREE.ShapeGeometry(shape);
@@ -453,7 +454,7 @@ function buildBuildings(buildingsPayload, campusRings) {
     roofGeom.computeVertexNormals();
     const roofMesh = new THREE.Mesh(roofGeom, roof);
     roofMesh.castShadow = true;
-    roofMesh.receiveShadow = true;
+    roofMesh.receiveShadow = false;
     group.add(roofMesh);
 
     const edges = new THREE.EdgesGeometry(geom, 12);
@@ -1498,7 +1499,8 @@ export default function WindFlowViewer() {
           buildingsGroup = buildBuildings(bldRes.data, campusRings);
           buildingsGroup.userData.n_buildings = nB;
           buildingsGroup.userData.style_rev = styleRev;
-          enableMeshShadows(buildingsGroup, { cast: true, receive: true });
+          // Must stay receive:false — receive:true re-applies roof/wall stripe acne.
+          enableMeshShadows(buildingsGroup, { cast: true, receive: false });
           scene.add(buildingsGroup);
         }
       }
