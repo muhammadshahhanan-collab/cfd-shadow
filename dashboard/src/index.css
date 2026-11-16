@@ -232,6 +232,24 @@ body {
   background: rgba(94, 200, 168, 0.28);
 }
 
+.shadow-play-btn.is-on {
+  background: rgba(94, 200, 168, 0.35);
+  border-color: rgba(94, 200, 168, 0.75);
+}
+
+.air-temp-legend-bar {
+  margin-top: 8px;
+  height: 12px;
+  border-radius: 3px;
+  background: linear-gradient(
+    90deg,
+    #1f66eb 0%,
+    #3ec9a0 28%,
+    #e0c93a 58%,
+    #e24a2f 100%
+  );
+}
+
 .shadow-time-meta {
   margin: 0;
   font-size: 10px;

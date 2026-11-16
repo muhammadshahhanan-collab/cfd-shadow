@@ -4,6 +4,8 @@ import * as SunCalc from "suncalc";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import {
+  HKO_AIR_TEMP_HEIGHT_M,
+  getHkoAirTemp,
   getLazCrownsBin,
   getLazCrownsMeta,
   getSolidTreesMeta,
@@ -15,14 +17,40 @@ import {
   getWindTrees,
 } from "../services/windApi";
 
+/** Poll HKO air temperature this often (not every 1 min). */
+const HKO_AIR_TEMP_POLL_MS = 30 * 60 * 1000;
+/** Keep AWS within this distance of the wind-domain centre for the heatmap. */
+const HKO_TEMP_STATION_RADIUS_M = 4500;
+/**
+ * Absolute colour scale for HK screen air temp (°C).
+ * Fixed range so roads read warm/cool honestly (not stretched to local min–max).
+ */
+const AIR_TEMP_COLOR_MIN_C = 18;
+const AIR_TEMP_COLOR_MAX_C = 30;
+
 /** PolyU main campus (WGS84) — solar ephemeris. */
 const POLYU_LAT = 22.3045;
 const POLYU_LON = 114.1795;
 
 /** Package defaults from wind_latest.json viz (n_particles_default / time_scale). */
 const TIME_SCALE = 10;
-const N_PARTICLES = 2800;
-const TRAIL = 10;
+/** Campus-era baseline; Hung Hom capped for interactive FPS (see particleCountForDomain). */
+const N_PARTICLES_BASE = 2800;
+const N_PARTICLES_MAX = 7000; // 16k + long trails was stalling the browser
+const CAMPUS_AREA_REF_M2 = 432 * 572;
+const TRAIL_BASE = 10;
+const TRAIL_DISTRICT = 8; // fewer segments → much cheaper LineSegments updates
+
+function particleCountForDomain(nx, ny, dx, vizCount, district) {
+  if (Number.isFinite(vizCount) && vizCount > 0) {
+    return Math.min(N_PARTICLES_MAX, Math.max(1200, Math.round(vizCount)));
+  }
+  const area = Math.max(1, nx * dx * ny * dx);
+  // Mild scale-up for district without melting the GPU.
+  const factor = district ? Math.pow(area / CAMPUS_AREA_REF_M2, 0.35) : Math.sqrt(area / CAMPUS_AREA_REF_M2);
+  const scaled = Math.round(N_PARTICLES_BASE * factor);
+  return Math.min(N_PARTICLES_MAX, Math.max(N_PARTICLES_BASE, scaled));
+}
 const POLL_MS = 60_000;
 const HOUR_MS = 3_600_000;
 /**
@@ -130,9 +158,10 @@ function turboColor(t, target) {
 }
 
 /** 0 at domain walls → 1 in the interior (kills the square-box silhouette). */
-function edgeFade(x, y, Lx, Ly, margin = EDGE_MARGIN_M) {
-  const mx = Math.min(x, Lx - x) / margin;
-  const my = Math.min(y, Ly - y) / margin;
+function edgeFade(x, y, Lx, Ly, margin) {
+  const m = margin ?? EDGE_MARGIN_M;
+  const mx = Math.min(x, Lx - x) / m;
+  const my = Math.min(y, Ly - y) / m;
   return Math.min(1, Math.max(0, Math.min(mx, my)));
 }
 
@@ -443,7 +472,7 @@ function buildBuildings(buildingsPayload, campusRings) {
     geom.computeVertexNormals();
 
     const wallMesh = new THREE.Mesh(geom, wall);
-    // Cast onto ground only — receiving on buildings causes shadow-map stripe acne.
+    // Cast onto ground only — receiving shadows on buildings causes stripe acne.
     wallMesh.castShadow = true;
     wallMesh.receiveShadow = false;
     group.add(wallMesh);
@@ -721,6 +750,252 @@ function toThree(x, yNorth, zUp, out, o) {
   out[o + 2] = -yNorth;
 }
 
+/** Cool→warm ramp for air-temperature (blue → yellow → orange → red). */
+function airTempColor(t01, out) {
+  const t = Math.min(1, Math.max(0, t01));
+  if (t < 0.33) {
+    const u = t / 0.33;
+    out.setRGB(0.12 + 0.2 * u, 0.4 + 0.45 * u, 0.92 - 0.35 * u);
+  } else if (t < 0.66) {
+    const u = (t - 0.33) / 0.33;
+    out.setRGB(0.32 + 0.6 * u, 0.85 - 0.15 * u, 0.57 - 0.45 * u);
+  } else {
+    const u = (t - 0.66) / 0.34;
+    out.setRGB(0.92 + 0.06 * u, 0.7 - 0.55 * u, 0.12 - 0.08 * u);
+  }
+  return out;
+}
+
+function airTempRange(stationsLocal) {
+  const temps = stationsLocal.map((s) => s.temp_c);
+  let tMin = Math.min(...temps);
+  let tMax = Math.max(...temps);
+  if (tMax - tMin < 0.4) {
+    tMin -= 0.5;
+    tMax += 0.5;
+  }
+  return { tMin, tMax };
+}
+
+/** Map °C → 0..1 using the fixed HK display scale. */
+function airTempT01(tempC) {
+  return (Number(tempC) - AIR_TEMP_COLOR_MIN_C) / (AIR_TEMP_COLOR_MAX_C - AIR_TEMP_COLOR_MIN_C);
+}
+
+/** Inverse-distance weighting of HKO AWS air temperature at a local (x east, y north) point. */
+function idwAirTemp(x, y, stationsLocal, power = 2) {
+  let wSum = 0;
+  let tSum = 0;
+  for (const s of stationsLocal) {
+    const d2 = (x - s.x) * (x - s.x) + (y - s.y) * (y - s.y);
+    const w = 1 / Math.max(d2, 25) ** (power / 2);
+    wSum += w;
+    tSum += w * s.temp_c;
+  }
+  return wSum > 0 ? tSum / wSum : null;
+}
+
+function addAirTempStationMarkers(group, stationsLocal, heightM) {
+  const markerMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+  const markerGeom = new THREE.SphereGeometry(6, 12, 10);
+  for (const s of stationsLocal) {
+    const m = new THREE.Mesh(markerGeom, markerMat.clone());
+    m.material.color.set(s.place === "King's Park" ? 0xffe066 : 0xffffff);
+    m.position.set(s.x, heightM + 4, -s.y);
+    m.userData.place = s.place;
+    m.userData.temp_c = s.temp_c;
+    group.add(m);
+  }
+}
+
+/**
+ * Pedestrian / roadside air temp: colour road + footpath centre/edges by HKO IDW
+ * at ~1.2 m AGL. Preferred long-term view for HK-wide expansion (network-first).
+ */
+function buildAirTempRoadsGroup(
+  roadsPayload,
+  stationsLocal,
+  heightM = HKO_AIR_TEMP_HEIGHT_M,
+  withMarkers = true
+) {
+  const group = new THREE.Group();
+  group.name = "hko-air-temp-roads";
+  if (!stationsLocal?.length || !roadsPayload?.segments?.length) return group;
+
+  const { tMin, tMax } = airTempRange(stationsLocal);
+  const tmpA = new THREE.Color();
+  const tmpB = new THREE.Color();
+  const positions = [];
+  const colors = [];
+  const indices = [];
+
+  const pushRibbon = (pts, half, y) => {
+    if (pts.length < 2) return;
+    for (let i = 0; i < pts.length - 1; i += 1) {
+      const a = pts[i];
+      const b = pts[i + 1];
+      let tx = b[0] - a[0];
+      let ty = b[1] - a[1];
+      const tl = Math.hypot(tx, ty) || 1;
+      tx /= tl;
+      ty /= tl;
+      const nx = -ty * half;
+      const ny = tx * half;
+      const ta = idwAirTemp(a[0], a[1], stationsLocal);
+      const tb = idwAirTemp(b[0], b[1], stationsLocal);
+      if (ta == null || tb == null) continue;
+      airTempColor(airTempT01(ta), tmpA);
+      airTempColor(airTempT01(tb), tmpB);
+      const base = positions.length / 3;
+      // Quad: aL, aR, bR, bL
+      positions.push(a[0] + nx, y, -(a[1] + ny));
+      colors.push(tmpA.r, tmpA.g, tmpA.b);
+      positions.push(a[0] - nx, y, -(a[1] - ny));
+      colors.push(tmpA.r, tmpA.g, tmpA.b);
+      positions.push(b[0] - nx, y, -(b[1] - ny));
+      colors.push(tmpB.r, tmpB.g, tmpB.b);
+      positions.push(b[0] + nx, y, -(b[1] + ny));
+      colors.push(tmpB.r, tmpB.g, tmpB.b);
+      indices.push(base, base + 1, base + 2, base, base + 2, base + 3);
+    }
+  };
+
+  // Slightly above base road lines so temp colour reads clearly.
+  const yRoad = Math.max(0.35, heightM * 0.4);
+  const yPath = Math.max(0.42, heightM * 0.5);
+
+  for (const s of roadsPayload.segments) {
+    const pts = s.coords || [];
+    if (pts.length < 2) continue;
+    const hw = String(s.highway || "");
+    const isPath = /footway|path|cycleway|steps|track|pedestrian|crossing/.test(hw);
+    if (isPath) {
+      pushRibbon(pts, Math.max(1.4, (s.width_m || 2.4) * 0.55), yPath);
+      continue;
+    }
+    pushRibbon(pts, Math.max(2.2, (s.width_m || 4) * 0.55), yRoad);
+  }
+
+  if (positions.length && indices.length) {
+    const geom = new THREE.BufferGeometry();
+    geom.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+    geom.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
+    geom.setIndex(indices);
+    const mesh = new THREE.Mesh(
+      geom,
+      new THREE.MeshBasicMaterial({
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.92,
+        depthWrite: false,
+        side: THREE.DoubleSide,
+      })
+    );
+    mesh.renderOrder = 4;
+    group.add(mesh);
+  }
+
+  if (withMarkers) addAirTempStationMarkers(group, stationsLocal, heightM);
+  group.userData = {
+    tMin,
+    tMax,
+    colorMin: AIR_TEMP_COLOR_MIN_C,
+    colorMax: AIR_TEMP_COLOR_MAX_C,
+    nStations: stationsLocal.length,
+    nSegments: indices.length / 6,
+    height_m_agl: heightM,
+    mode: "roads",
+  };
+  return group;
+}
+
+/**
+ * Optional full-area IDW carpet (screen ≈ 1.2 m AGL). Supporting view only —
+ * not the HK-wide product default (station interpolation, not CFD thermal).
+ */
+function buildAirTempHeatmapGroup(
+  stationsLocal,
+  bounds,
+  heightM = HKO_AIR_TEMP_HEIGHT_M,
+  withMarkers = true
+) {
+  const group = new THREE.Group();
+  group.name = "hko-air-temp-area";
+  if (!stationsLocal?.length || !bounds) return group;
+
+  const { x0, y0, x1, y1 } = bounds;
+  const width = Math.max(40, x1 - x0);
+  const height = Math.max(40, y1 - y0);
+  const res = 96;
+  const canvas = document.createElement("canvas");
+  canvas.width = res;
+  canvas.height = res;
+  const ctx = canvas.getContext("2d", { willReadFrequently: true });
+  const img = ctx.createImageData(res, res);
+  const { tMin, tMax } = airTempRange(stationsLocal);
+  const tmp = new THREE.Color();
+  // Strong colour near AWS; fade out beyond this so far PolyU fringes are not a solid mid-green slab.
+  const fadeFullM = 700;
+  const fadeOutM = 2200;
+
+  for (let j = 0; j < res; j += 1) {
+    for (let i = 0; i < res; i += 1) {
+      const x = x0 + ((i + 0.5) / res) * width;
+      const y = y1 - ((j + 0.5) / res) * height; // canvas y down
+      let nearest = Infinity;
+      for (const s of stationsLocal) {
+        const d2 = (x - s.x) * (x - s.x) + (y - s.y) * (y - s.y);
+        nearest = Math.min(nearest, Math.sqrt(d2));
+      }
+      const t = idwAirTemp(x, y, stationsLocal);
+      airTempColor(airTempT01(t ?? tMin), tmp);
+      let alpha = 0;
+      if (nearest <= fadeFullM) alpha = 160;
+      else if (nearest < fadeOutM) {
+        alpha = Math.round(160 * (1 - (nearest - fadeFullM) / (fadeOutM - fadeFullM)));
+      }
+      const o = (j * res + i) * 4;
+      img.data[o] = Math.round(tmp.r * 255);
+      img.data[o + 1] = Math.round(tmp.g * 255);
+      img.data[o + 2] = Math.round(tmp.b * 255);
+      img.data[o + 3] = alpha;
+    }
+  }
+  ctx.putImageData(img, 0, 0);
+
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.magFilter = THREE.LinearFilter;
+  tex.minFilter = THREE.LinearFilter;
+  const plane = new THREE.Mesh(
+    new THREE.PlaneGeometry(width, height),
+    new THREE.MeshBasicMaterial({
+      map: tex,
+      transparent: true,
+      opacity: 0.72,
+      depthWrite: false,
+      side: THREE.DoubleSide,
+    })
+  );
+  plane.rotation.x = -Math.PI / 2;
+  plane.position.set(0.5 * (x0 + x1), heightM, -0.5 * (y0 + y1));
+  plane.renderOrder = 2;
+  group.add(plane);
+
+  if (withMarkers) addAirTempStationMarkers(group, stationsLocal, heightM);
+
+  group.userData = {
+    tMin,
+    tMax,
+    colorMin: AIR_TEMP_COLOR_MIN_C,
+    colorMax: AIR_TEMP_COLOR_MAX_C,
+    nStations: stationsLocal.length,
+    height_m_agl: heightM,
+    mode: "area",
+  };
+  return group;
+}
+
 function formatStamp(ts) {
   if (!ts) return "latest package";
   return String(ts).replace("T", " ").slice(0, 16);
@@ -834,6 +1109,7 @@ function formatHm(minutesOfDay) {
 export default function WindFlowViewer() {
   const wrapRef = useRef(null);
   const solarApiRef = useRef(null);
+  const airTempApiRef = useRef(null);
   const [status, setStatus] = useState("loading");
   const [error, setError] = useState("");
   const [meta, setMeta] = useState(null);
@@ -847,6 +1123,26 @@ export default function WindFlowViewer() {
     azimuthDeg: 0,
     aboveHorizon: false,
   });
+  const [hkoAirTemp, setHkoAirTemp] = useState(null);
+  /** Live deploy: whole-area IDW only (road temp kept in code, off by default). */
+  const [showAirTempRoads, setShowAirTempRoads] = useState(false);
+  const [showAirTempArea, setShowAirTempArea] = useState(true);
+  const [airTempLayerMeta, setAirTempLayerMeta] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    async function pullAirTemp() {
+      const res = await getHkoAirTemp("King's Park");
+      if (cancelled) return;
+      if (res.ok) setHkoAirTemp(res.data);
+    }
+    pullAirTemp();
+    const id = window.setInterval(pullAirTemp, HKO_AIR_TEMP_POLL_MS);
+    return () => {
+      cancelled = true;
+      window.clearInterval(id);
+    };
+  }, []);
 
   useEffect(() => {
     setDayBounds(solarDayBoundsHk(shadowDate));
@@ -855,6 +1151,15 @@ export default function WindFlowViewer() {
   useEffect(() => {
     solarApiRef.current?.setTime?.(shadowDate, shadowMinutes);
   }, [shadowDate, shadowMinutes]);
+
+  useEffect(() => {
+    const info =
+      airTempApiRef.current?.setLayer?.(hkoAirTemp, {
+        roads: showAirTempRoads,
+        area: showAirTempArea,
+      }) || null;
+    setAirTempLayerMeta(info);
+  }, [hkoAirTemp, showAirTempRoads, showAirTempArea, status, meta?.updated_at]);
 
   useEffect(() => {
     if (!shadowPlaying) return undefined;
@@ -885,7 +1190,7 @@ export default function WindFlowViewer() {
     scene.fog = new THREE.FogExp2(0x2a2622, 0.00042);
     const camera = new THREE.PerspectiveCamera(42, 1, 1, 5000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.12;
@@ -1036,6 +1341,12 @@ export default function WindFlowViewer() {
         if (S.lines) S.lines.visible = v;
         if (S.heads) S.heads.visible = v;
       },
+      setAirTempModes(modes) {
+        return airTempApiRef.current?.setModes?.(modes) || null;
+      },
+      getAirTempDebug() {
+        return airTempApiRef.current?.getDebug?.() || null;
+      },
       setSolarTime(dateStr, minutesOfDay) {
         applySolarTime(String(dateStr), Number(minutesOfDay));
         renderer.render(scene, camera);
@@ -1074,6 +1385,159 @@ export default function WindFlowViewer() {
     let treesGroup = null;
     let ladGroup = null;
     let windDomainOutline = null;
+    let airTempRoadsGroup = null;
+    let airTempAreaGroup = null;
+    let airTempPayloadCache = null;
+    let airTempMode = { roads: false, area: true };
+    let roadsPayloadCache = null;
+
+    function disposeAirTempObject(obj) {
+      if (!obj) return;
+      scene.remove(obj);
+      obj.traverse((child) => {
+        child.geometry?.dispose?.();
+        if (child.material) {
+          if (Array.isArray(child.material)) child.material.forEach((m) => m.dispose?.());
+          else {
+            child.material.map?.dispose?.();
+            child.material.dispose?.();
+          }
+        }
+      });
+    }
+
+    function disposeAirTempGroups() {
+      disposeAirTempObject(airTempRoadsGroup);
+      disposeAirTempObject(airTempAreaGroup);
+      airTempRoadsGroup = null;
+      airTempAreaGroup = null;
+      if (roadsGroup) roadsGroup.visible = true;
+    }
+
+    function localAirTempStations(tempPayload) {
+      if (!tempPayload?.stations?.length || !S.origin_hk80 || !S.focus) return [];
+      const [ox, oy] = S.origin_hk80;
+      const cx = 0.5 * (S.focus.x0 + S.focus.x1);
+      const cy = 0.5 * (S.focus.y0 + S.focus.y1);
+      const localStations = [];
+      for (const s of tempPayload.stations) {
+        if (s.easting == null || s.northing == null) continue;
+        const x = s.easting - ox;
+        const y = s.northing - oy;
+        if (Math.hypot(x - cx, y - cy) > HKO_TEMP_STATION_RADIUS_M) continue;
+        localStations.push({
+          place: s.place,
+          temp_c: s.temp_c,
+          x,
+          y,
+        });
+      }
+      return localStations;
+    }
+
+    function rebuildAirTempLayers() {
+      disposeAirTempGroups();
+      const wantRoads = !!airTempMode.roads;
+      const wantArea = !!airTempMode.area;
+      if (!wantRoads && !wantArea) return null;
+      if (!airTempPayloadCache || !S.origin_hk80 || !S.focus) return null;
+
+      const localStations = localAirTempStations(airTempPayloadCache);
+      if (!localStations.length) return null;
+
+      let metaOut = null;
+      if (wantRoads && roadsPayloadCache) {
+        airTempRoadsGroup = buildAirTempRoadsGroup(
+          roadsPayloadCache,
+          localStations,
+          HKO_AIR_TEMP_HEIGHT_M,
+          true
+        );
+        scene.add(airTempRoadsGroup);
+        if (roadsGroup) roadsGroup.visible = false;
+        metaOut = {
+          tMin: airTempRoadsGroup.userData.tMin,
+          tMax: airTempRoadsGroup.userData.tMax,
+          colorMin: AIR_TEMP_COLOR_MIN_C,
+          colorMax: AIR_TEMP_COLOR_MAX_C,
+          nStations: airTempRoadsGroup.userData.nStations,
+          nSegments: airTempRoadsGroup.userData.nSegments,
+          height_m_agl: HKO_AIR_TEMP_HEIGHT_M,
+          mode: "roads",
+        };
+      }
+
+      if (wantArea) {
+        const pad = 120;
+        const xs = localStations.map((s) => s.x);
+        const ys = localStations.map((s) => s.y);
+        const bounds = {
+          x0: Math.min(S.focus.x0 - pad, ...xs) - 60,
+          y0: Math.min(S.focus.y0 - pad, ...ys) - 60,
+          x1: Math.max(S.focus.x1 + pad, ...xs) + 60,
+          y1: Math.max(S.focus.y1 + pad, ...ys) + 60,
+        };
+        airTempAreaGroup = buildAirTempHeatmapGroup(
+          localStations,
+          bounds,
+          HKO_AIR_TEMP_HEIGHT_M,
+          !wantRoads
+        );
+        scene.add(airTempAreaGroup);
+        metaOut = {
+          tMin: airTempAreaGroup.userData.tMin,
+          tMax: airTempAreaGroup.userData.tMax,
+          colorMin: AIR_TEMP_COLOR_MIN_C,
+          colorMax: AIR_TEMP_COLOR_MAX_C,
+          nStations: airTempAreaGroup.userData.nStations,
+          height_m_agl: HKO_AIR_TEMP_HEIGHT_M,
+          mode: wantRoads ? "roads+area" : "area",
+        };
+      }
+      return metaOut;
+    }
+
+    function setAirTempLayer(tempPayload, modes) {
+      airTempPayloadCache = tempPayload || null;
+      if (modes && typeof modes === "object") {
+        airTempMode = {
+          roads: !!modes.roads,
+          area: !!modes.area,
+        };
+      }
+      return rebuildAirTempLayers();
+    }
+
+    function setAirTempModes(modes) {
+      if (modes && typeof modes === "object") {
+        airTempMode = {
+          roads: !!modes.roads,
+          area: !!modes.area,
+        };
+      }
+      const info = rebuildAirTempLayers();
+      if (!disposed) setAirTempLayerMeta(info);
+      return info;
+    }
+
+    function getAirTempDebug() {
+      return {
+        mode: { ...airTempMode },
+        hasPayload: !!airTempPayloadCache,
+        nStationsPayload: airTempPayloadCache?.stations?.length || 0,
+        hasRoadsPayload: !!roadsPayloadCache,
+        nRoadSegments: roadsPayloadCache?.segments?.length || 0,
+        roadsVisible: airTempRoadsGroup != null,
+        areaVisible: airTempAreaGroup != null,
+        meta: airTempRoadsGroup?.userData || airTempAreaGroup?.userData || null,
+      };
+    }
+
+    airTempApiRef.current = {
+      setLayer: setAirTempLayer,
+      setModes: setAirTempModes,
+      getDebug: getAirTempDebug,
+    };
     let roadsGroup = null;
     let boundaryGroup = null;
     let pedPlane = null;
@@ -1099,13 +1563,17 @@ export default function WindFlowViewer() {
       vmax: 5,
       focus: null,
       ready: false,
+      nParticles: N_PARTICLES_BASE,
+      trail: TRAIL_BASE,
+      districtScale: false,
+      edgeMarginM: EDGE_MARGIN_M,
     };
 
     function spawnOne(i) {
       const { nx, ny, nz, dx, dz, solid, pos, focus } = S;
       const kPed = Math.min(nz - 1, Math.max(0, Math.round(PED_Z_M / dz - 0.5)));
       // Spawn on the 1.5 m AGL plane inside the wind focus.
-      const margin = Math.max(1, Math.ceil(EDGE_MARGIN_M / dx));
+      const margin = Math.max(1, Math.ceil((S.edgeMarginM || EDGE_MARGIN_M) / dx));
       let i0 = margin;
       let j0 = margin;
       let i1 = Math.max(i0 + 1, nx - margin);
@@ -1155,24 +1623,27 @@ export default function WindFlowViewer() {
 
     function initParticles() {
       disposeParticles();
-      const n = N_PARTICLES;
+      const n = S.nParticles || N_PARTICLES_BASE;
+      const trail = S.trail || TRAIL_BASE;
+      S.nParticles = n;
+      S.trail = trail;
       S.pos = new Float32Array(n * 3);
-      S.hist = new Float32Array(n * TRAIL * 3);
+      S.hist = new Float32Array(n * trail * 3);
       S.age = new Int16Array(n);
       S.life = new Int16Array(n);
       for (let i = 0; i < n; i += 1) {
         spawnOne(i);
         S.age[i] = (Math.random() * 50) | 0;
         S.life[i] = 55 + ((Math.random() * 70) | 0);
-        for (let t = 0; t < TRAIL; t += 1) {
-          const o = (i * TRAIL + t) * 3;
+        for (let t = 0; t < trail; t += 1) {
+          const o = (i * trail + t) * 3;
           S.hist[o] = S.pos[i * 3];
           S.hist[o + 1] = S.pos[i * 3 + 1];
           S.hist[o + 2] = S.pos[i * 3 + 2];
         }
       }
 
-      const nSeg = n * (TRAIL - 1);
+      const nSeg = n * (trail - 1);
       const lineGeom = new THREE.BufferGeometry();
       lineGeom.setAttribute("position", new THREE.BufferAttribute(new Float32Array(nSeg * 2 * 3), 3));
       lineGeom.setAttribute("color", new THREE.BufferAttribute(new Float32Array(nSeg * 2 * 3), 3));
@@ -1181,7 +1652,7 @@ export default function WindFlowViewer() {
         new THREE.LineBasicMaterial({
           vertexColors: true,
           transparent: true,
-          opacity: 0.92,
+          opacity: S.districtScale ? 0.88 : 0.92,
           depthWrite: false,
         })
       );
@@ -1190,10 +1661,11 @@ export default function WindFlowViewer() {
       const headGeom = new THREE.BufferGeometry();
       headGeom.setAttribute("position", new THREE.BufferAttribute(new Float32Array(n * 3), 3));
       headGeom.setAttribute("color", new THREE.BufferAttribute(new Float32Array(n * 3), 3));
+      // Larger heads when viewing Hung Hom from higher altitude.
       S.heads = new THREE.Points(
         headGeom,
         new THREE.PointsMaterial({
-          size: 2.4,
+          size: S.districtScale ? 5.2 : 2.4,
           vertexColors: true,
           sizeAttenuation: true,
           transparent: true,
@@ -1220,10 +1692,14 @@ export default function WindFlowViewer() {
       const lineCol = lines.geometry.getAttribute("color");
       const headPos = heads.geometry.getAttribute("position");
       const headCol = heads.geometry.getAttribute("color");
-      const sub = 2;
+      // One substep on district (2 was too heavy with thousands of tracers).
+      const sub = S.districtScale ? 1 : 2;
       const h = dt / sub;
 
-      for (let i = 0; i < N_PARTICLES; i += 1) {
+      const nP = S.nParticles || N_PARTICLES_BASE;
+      const trail = S.trail || TRAIL_BASE;
+      const edgeM = S.edgeMarginM || EDGE_MARGIN_M;
+      for (let i = 0; i < nP; i += 1) {
         let x = pos[i * 3];
         let y = pos[i * 3 + 1];
         let z = pos[i * 3 + 2];
@@ -1234,13 +1710,20 @@ export default function WindFlowViewer() {
         // Horizontal advection only at pedestrian / canopy level (1.5 m AGL).
         for (let s = 0; s < sub; s += 1) {
           const [u1, v1] = sampleUVW(x, y, PED_Z_M);
-          const mx = x + 0.5 * h * u1;
-          const my = y + 0.5 * h * v1;
-          const [u2, v2] = sampleUVW(mx, my, PED_Z_M);
-          x += h * u2;
-          y += h * v2;
-          ux = u2;
-          uy = v2;
+          if (sub === 1) {
+            x += h * u1;
+            y += h * v1;
+            ux = u1;
+            uy = v1;
+          } else {
+            const mx = x + 0.5 * h * u1;
+            const my = y + 0.5 * h * v1;
+            const [u2, v2] = sampleUVW(mx, my, PED_Z_M);
+            x += h * u2;
+            y += h * v2;
+            ux = u2;
+            uy = v2;
+          }
           uz = 0;
         }
         z = PED_Z_M;
@@ -1250,14 +1733,14 @@ export default function WindFlowViewer() {
         pos[i * 3 + 2] = z;
         age[i] += 1;
 
-        for (let t = 0; t < TRAIL - 1; t += 1) {
-          const a = (i * TRAIL + t) * 3;
-          const b = (i * TRAIL + t + 1) * 3;
+        for (let t = 0; t < trail - 1; t += 1) {
+          const a = (i * trail + t) * 3;
+          const b = (i * trail + t + 1) * 3;
           hist[a] = hist[b];
           hist[a + 1] = hist[b + 1];
           hist[a + 2] = hist[b + 2];
         }
-        const head = (i * TRAIL + TRAIL - 1) * 3;
+        const head = (i * trail + trail - 1) * 3;
         hist[head] = x;
         hist[head + 1] = y;
         hist[head + 2] = z;
@@ -1267,7 +1750,7 @@ export default function WindFlowViewer() {
         const ck = Math.min(nz - 1, Math.max(0, (z / dz) | 0));
         const Lx = nx * dx;
         const Ly = ny * dx;
-        const eFade = edgeFade(x, y, Lx, Ly) * focusFade(x, y, S.focus);
+        const eFade = edgeFade(x, y, Lx, Ly, edgeM) * focusFade(x, y, S.focus, edgeM);
         const dead =
           solid[idx3(ci, cj, ck, ny, nz)] ||
           age[i] > life[i] ||
@@ -1280,47 +1763,39 @@ export default function WindFlowViewer() {
           spawnOne(i);
           age[i] = 0;
           life[i] = 55 + ((Math.random() * 70) | 0);
-          for (let t = 0; t < TRAIL; t += 1) {
-            const o = (i * TRAIL + t) * 3;
+          for (let t = 0; t < trail; t += 1) {
+            const o = (i * trail + t) * 3;
             hist[o] = pos[i * 3];
             hist[o + 1] = pos[i * 3 + 1];
             hist[o + 2] = pos[i * 3 + 2];
           }
         }
 
-        for (let t = 0; t < TRAIL - 1; t += 1) {
-          const seg = (i * (TRAIL - 1) + t) * 6;
-          const o0 = (i * TRAIL + t) * 3;
-          const o1 = (i * TRAIL + t + 1) * 3;
+        // Colour whole trail from head speed (avoids 2× sampleUVW per segment).
+        turboColor(Math.hypot(ux, uy, uz) / vmax, tmpColor);
+        const headEf = eFade;
+        for (let t = 0; t < trail - 1; t += 1) {
+          const seg = (i * (trail - 1) + t) * 6;
+          const o0 = (i * trail + t) * 3;
+          const o1 = (i * trail + t + 1) * 3;
           toThree(hist[o0], hist[o0 + 1], hist[o0 + 2], linePos.array, seg);
           toThree(hist[o1], hist[o1 + 1], hist[o1 + 2], linePos.array, seg + 3);
-
-          const [su0, sv0, sw0] = sampleUVW(hist[o0], hist[o0 + 1], hist[o0 + 2]);
-          const [su1, sv1, sw1] = sampleUVW(hist[o1], hist[o1 + 1], hist[o1 + 2]);
-          turboColor(Math.hypot(su0, sv0, sw0) / vmax, tmpColor);
-          turboColor(Math.hypot(su1, sv1, sw1) / vmax, tmpColorB);
-          const ef0 =
-            edgeFade(hist[o0], hist[o0 + 1], Lx, Ly) *
-            focusFade(hist[o0], hist[o0 + 1], S.focus);
-          const ef1 =
-            edgeFade(hist[o1], hist[o1 + 1], Lx, Ly) *
-            focusFade(hist[o1], hist[o1 + 1], S.focus);
-          const fade0 = (0.35 + 0.65 * (t / (TRAIL - 1))) * ef0;
-          const fade1 = (0.35 + 0.65 * ((t + 1) / (TRAIL - 1))) * ef1;
+          const fade0 = (0.35 + 0.65 * (t / (trail - 1))) * headEf;
+          const fade1 = (0.35 + 0.65 * ((t + 1) / (trail - 1))) * headEf;
           lineCol.array[seg] = tmpColor.r * fade0;
           lineCol.array[seg + 1] = tmpColor.g * fade0;
           lineCol.array[seg + 2] = tmpColor.b * fade0;
-          lineCol.array[seg + 3] = tmpColorB.r * fade1;
-          lineCol.array[seg + 4] = tmpColorB.g * fade1;
-          lineCol.array[seg + 5] = tmpColorB.b * fade1;
+          lineCol.array[seg + 3] = tmpColor.r * fade1;
+          lineCol.array[seg + 4] = tmpColor.g * fade1;
+          lineCol.array[seg + 5] = tmpColor.b * fade1;
         }
 
         turboColor(Math.hypot(ux, uy, uz) / vmax, tmpColor);
         const ho = i * 3;
         toThree(pos[i * 3], pos[i * 3 + 1], pos[i * 3 + 2], headPos.array, ho);
         const hf =
-          edgeFade(pos[i * 3], pos[i * 3 + 1], Lx, Ly) *
-          focusFade(pos[i * 3], pos[i * 3 + 1], S.focus);
+          edgeFade(pos[i * 3], pos[i * 3 + 1], Lx, Ly, edgeM) *
+          focusFade(pos[i * 3], pos[i * 3 + 1], S.focus, edgeM);
         headCol.array[ho] = tmpColor.r * hf;
         headCol.array[ho + 1] = tmpColor.g * hf;
         headCol.array[ho + 2] = tmpColor.b * hf;
@@ -1334,6 +1809,9 @@ export default function WindFlowViewer() {
 
     function applyWindPackage(wind) {
       const dom = wind.domain;
+      S.origin_hk80 = Array.isArray(dom.origin_hk80)
+        ? [Number(dom.origin_hk80[0]), Number(dom.origin_hk80[1])]
+        : null;
       S.nx = dom.nx;
       S.ny = dom.ny;
       S.nz = dom.nz;
@@ -1343,15 +1821,28 @@ export default function WindFlowViewer() {
       S.v = decodeF16LE(wind.grid.v);
       S.w = decodeF16LE(wind.grid.w);
       S.solid = decodeU8(wind.grid.solid);
-      // PolyU boundary + 0.5 km — clamped to CFD domain (covers full seed135 field).
+      // Full wind package extent (campus core, or Hung Hom district pad).
       const Lx = S.nx * S.dx;
       const Ly = S.ny * S.dx;
+      const hunghom = !!dom.hunghom_district || !!dom.air_radius_extended;
+      S.districtScale = hunghom;
+      S.trail = hunghom ? TRAIL_DISTRICT : TRAIL_BASE;
+      S.edgeMarginM = hunghom ? Math.max(80, Math.min(140, Math.max(Lx, Ly) * 0.04)) : EDGE_MARGIN_M;
+      S.nParticles = particleCountForDomain(
+        S.nx,
+        S.ny,
+        S.dx,
+        wind.viz?.n_particles_default,
+        hunghom
+      );
       S.focus = {
         x0: 0,
         y0: 0,
         x1: Lx,
         y1: Ly,
-        note: `PolyU boundary + ${WIND_FOCUS_PAD_M} m (CFD extent)`,
+        note: hunghom
+          ? `Hung Hom district (~${Math.round(dom.radius_m || Math.max(Lx, Ly) * 0.5)} m radius)`
+          : `PolyU boundary + ${WIND_FOCUS_PAD_M} m (CFD extent)`,
       };
 
       // Colour scale from 1.5 m AGL layer (tree / pedestrian height).
@@ -1373,7 +1864,18 @@ export default function WindFlowViewer() {
       }
       speeds.sort((a, b) => a - b);
       const p98 = speeds.length ? speeds[Math.floor(speeds.length * 0.98)] : 5;
-      S.vmax = Math.max(0.8, p98);
+      const p50 = speeds.length ? speeds[Math.floor(speeds.length * 0.5)] : 3;
+      const inletU = Number(wind.inlet?.u_ref_mps) || 4;
+      const hint = Number(wind.viz?.vmax_hint_mps) || 0;
+      // Avoid flat colour when freestream dominates: spread turbo across a real district range.
+      S.vmax = Math.max(
+        0.8,
+        hint,
+        p98,
+        p50 * 1.8,
+        inletU * 1.15,
+        hunghom ? 6.0 : 0.8
+      );
 
       initParticles();
       S.ready = true;
@@ -1388,13 +1890,20 @@ export default function WindFlowViewer() {
       // No solid ground / comfort plate — paths + building footprints only.
       pedPlane = null;
 
-      // Camera on PolyU core (not the full 1 km pad) so tree effect reads clearly.
+      // Hung Hom: frame the full district. Campus-only: tighter core view.
       const cx = 0.5 * (fx0 + fx1);
       const cy = 0.5 * (fy0 + fy1);
       const cz = Math.min(42, S.nz * S.dz * 0.35);
       const span = Math.max(fx1 - fx0, fy1 - fy0, 380);
-      controls.target.set(cx, cz * 0.45, -cy);
-      camera.position.set(cx - span * 0.55, span * 0.48, -cy + span * 0.52);
+      if (S.districtScale) {
+        controls.target.set(cx, 8, -cy);
+        camera.position.set(cx - span * 0.35, span * 0.62, -cy + span * 0.72);
+        controls.maxDistance = span * 2.5;
+        controls.minDistance = 80;
+      } else {
+        controls.target.set(cx, cz * 0.45, -cy);
+        camera.position.set(cx - span * 0.55, span * 0.48, -cy + span * 0.52);
+      }
       controls.update();
       solarApiRef.current?.setFocus?.(cx, cy);
 
@@ -1412,6 +1921,9 @@ export default function WindFlowViewer() {
         n_trees: treeCount,
         vmax_mps: Number(S.vmax.toFixed(2)),
         wind_extent_m: [Number(Lx.toFixed(0)), Number(Ly.toFixed(0))],
+        domain_label: S.districtScale ? "Hung Hom district" : "PolyU campus",
+        n_particles: S.nParticles,
+        radius_m: dom.radius_m || null,
       });
       setStatus("ready");
       setError("");
@@ -1461,7 +1973,6 @@ export default function WindFlowViewer() {
         ok = treeCount > 0;
       }
 
-      // Always overlay LAD canopy voxels from the CFD drag package (where wind slows).
       const treeRes = await getWindTrees();
       if (treeRes.ok) {
         if (ladGroup) scene.remove(ladGroup);
@@ -1525,6 +2036,7 @@ export default function WindFlowViewer() {
       }
 
       if (roadRes?.ok) {
+        roadsPayloadCache = roadRes.data;
         const nR = roadRes.data?.n_segments || roadRes.data?.segments?.length || 0;
         const roadStyle = roadRes.data?.style_rev || 6;
         const prevR = roadsGroup?.userData?.n_segments || 0;
@@ -1536,8 +2048,9 @@ export default function WindFlowViewer() {
           roadsGroup.userData.roadStyle = roadStyle;
           scene.add(roadsGroup);
         }
+        // Refresh network air-temp colours once roads are available.
+        if (airTempMode.roads || airTempMode.area) rebuildAirTempLayers();
       }
-      // No campus / wind-domain outline on this dashboard.
       if (boundaryGroup) {
         scene.remove(boundaryGroup);
         boundaryGroup = null;
@@ -1588,6 +2101,8 @@ export default function WindFlowViewer() {
       disposed = true;
       if (window.__CFD_SHADOW__) delete window.__CFD_SHADOW__;
       solarApiRef.current = null;
+      airTempApiRef.current = null;
+      disposeAirTempGroups();
       cancelAnimationFrame(raf);
       window.clearInterval(pollTimer);
       window.clearInterval(hourTimer);
@@ -1622,14 +2137,28 @@ export default function WindFlowViewer() {
       {status === "ready" && meta ? (
         <>
           <div className="wind-flow-badge">
-            <strong>CFD Shadow · campus wind + sun shade</strong>
+            <strong>
+              CFD Shadow · {meta.domain_label || "Hung Hom"} wind + sun shade
+            </strong>
             <span>{formatStamp(meta.timestamp || meta.updated_at)}</span>
             <span>
               HKO {Number(meta.wind_from_deg ?? 0).toFixed(0)}° ·{" "}
-              {Number(meta.u_ref_mps ?? 0).toFixed(1)} m/s inlet
+              {Number(meta.u_ref_mps ?? 0).toFixed(1)} m/s inlet (King&apos;s Park)
             </span>
             <span>
-              {Number(meta.n_trees || 0)} measured crowns · canopy drag on
+              {hkoAirTemp
+                ? `Air temp ${hkoAirTemp.temp_c.toFixed(0)}°C · ${hkoAirTemp.place} @ ~${HKO_AIR_TEMP_HEIGHT_M.toFixed(1)} m AGL (live · 30 min)`
+                : "Air temp — waiting for HKO…"}
+            </span>
+            <span>
+              {meta.wind_extent_m
+                ? `${meta.wind_extent_m[0]}×${meta.wind_extent_m[1]} m domain`
+                : "district domain"}
+              {" · "}
+              {Number(meta.n_particles || 0).toLocaleString()} tracers @ 1.5 m AGL
+            </span>
+            <span>
+              {Number(meta.n_trees || 0)} measured crowns · LandsD solids
             </span>
             <span className="wind-flow-badge-note">
               Direct-sun shadows: SunCalc ephemeris + LAZ crowns + LandsD buildings
@@ -1654,6 +2183,14 @@ export default function WindFlowViewer() {
                 onClick={() => setShadowPlaying((p) => !p)}
               >
                 {shadowPlaying ? "Pause" : "Play day"}
+              </button>
+              <button
+                type="button"
+                className={`shadow-play-btn${showAirTempArea ? " is-on" : ""}`}
+                onClick={() => setShowAirTempArea((v) => !v)}
+                title="HKO AWS IDW air-temp layer over the domain (~1.2 m AGL)"
+              >
+                {showAirTempArea ? "Hide area temp" : "Area temp"}
               </button>
             </div>
             <div className="shadow-time-row">
@@ -1688,8 +2225,33 @@ export default function WindFlowViewer() {
               <span>{Number(meta.vmax_mps || 0).toFixed(1)}</span>
             </div>
             <p className="wind-flow-legend-hint">
-              1.5 m AGL trails · scrub time for tree/building shadows
+              1.5 m AGL · Hung Hom district trails · scrub time for shade
             </p>
+            {showAirTempRoads || showAirTempArea ? (
+              <>
+                <div className="air-temp-legend-bar" aria-hidden="true" />
+                <div className="wind-flow-legend-labels">
+                  <span>{AIR_TEMP_COLOR_MIN_C}°C</span>
+                  <span>
+                    {showAirTempRoads && showAirTempArea
+                      ? "air temp roads + area"
+                      : showAirTempRoads
+                        ? "road / path air temp"
+                        : "area air temp"}{" "}
+                    (HKO IDW)
+                  </span>
+                  <span>{AIR_TEMP_COLOR_MAX_C}°C</span>
+                </div>
+                <p className="wind-flow-legend-hint">
+                  Screen height ~{HKO_AIR_TEMP_HEIGHT_M.toFixed(1)} m AGL ·{" "}
+                  {airTempLayerMeta?.nStations || 0} nearby AWS
+                  {airTempLayerMeta
+                    ? ` · stations ${Number(airTempLayerMeta.tMin).toFixed(0)}–${Number(airTempLayerMeta.tMax).toFixed(0)}°C`
+                    : ""}{" "}
+                  · network-first · not CFD thermal
+                </p>
+              </>
+            ) : null}
           </div>
         </>
       ) : null}
